@@ -8,7 +8,7 @@
  
 x = 26
 epsilon = 0.01
-low=0.0
+low=1
 high=x
 guess=(low+high)/2
 num=0
