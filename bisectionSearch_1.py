@@ -8,7 +8,7 @@
  
 x = 26
 epsilon = 0.01
-low=0.0
+low=1
 high=x
 guess=(low+high)/2
 num=0
@@ -20,7 +20,7 @@ while abs(guess**2-x) >= epsilon:
     guess=(low+high)/2
     num+=1
 if abs(guess**2-x)>=epsilon:
-    print('Failed on x root of',x)
+    print('Failed on square root of',x)
 else:
     print('num_guesses =',num)
-    print(guess, 'is close to the x root of', x)
+    print(guess, 'is close to the square root of', x)
