@@ -14,3 +14,8 @@
 Thus, 
 * the Bisection Search converges on the order of $\log_2 N$ steps
 * Bisection Search works when value of function varies monotonically with input
+
+1. decimalFractionToBinary.py
+
+    turn a decimal fraction to its binary form. 
+    >But if the frctions are not ones where the denominator is a whole power of 2, then the fraction cannot be represent exactly.   So we should use `abs(x-y) < epsilon` rather than `x==y` when compare two floats.
