@@ -32,7 +32,10 @@
 #   - If there isn't an integer p that x*(2**p) is a whole number, then internal
 #     representation of x is always an approximation
 #     若 x 乘 2**p 无法成为一个整数，则在计算机内部它存储的只是一个近似值
-#   - Tesing equality of floats is not exact: so use abs(x-y)< epsilon rather x==y
+#   - Tesing equality of floats is not exact: so use ```abs(x-y)< epsilon``` rather ```x==y```
+#     When you do many computations on floats, you accumulate floating point errors. 
+#     The errors accumulated for x and y may not match up, so doing the comparison ```x==y```
+#     will sometimes lead to an inequality
 #   - So, why does ```print(0.1)``` return 0.1, if not exact?
 #     Because python designers set it up this way to automatically round
 
