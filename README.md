@@ -1,12 +1,21 @@
 # learnpy 
 
-[TOC]
+[| Python Basic](https://github.com/tristaaa/learnpy/blob/master/README.md#-python-basic)<br>
+&ensp;&ensp;[Introduction to Python](https://github.com/tristaaa/learnpy/blob/master/README.md#-introduction-to-python)<br>
+&ensp;&ensp;[Core Elements of Programs](https://github.com/tristaaa/learnpy/blob/master/README.md#-core-elements-of-programs)<br>
+[| Simple Program](https://github.com/tristaaa/learnpy/blob/master/README.md#--simple-program)<br>
+&ensp;&ensp;[Simple Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#-simple-algorithms)<br>
+&ensp;&ensp;[Functions](https://github.com/tristaaa/learnpy/blob/master/README.md#-functions)<br>
+&ensp;&ensp;[Complete Program](https://github.com/tristaaa/learnpy/blob/master/README.md#-complete-program)<br>
+
+
 ## | Python Basic
 ### 1. Introduction to Python
+
 ### 2. Core Elements of Programs
 
 ## | Simple Program
-### 3. Simple Algorithms
+### 1. Simple Algorithms
 1. bisectionSearch_1.py
 
     get the guess square root of x which is greater than 1
@@ -31,7 +40,7 @@ The program works as follows: you (the user) thinks of an integer between 0 (inc
 
     Newton-Raphson Method to get an approximate root of number. It says that if g is an approxiamte root of x, then `g - p(g)/p'(g)` is a better answer.
 
-### 4. Functions
+### 2. Functions
 So far, we've 
 
 - covered language mechanism, the first notion of `while` and `for` loops, and therefore, of iterations.
@@ -79,7 +88,36 @@ Then if we want to produce a large image, we need more than one projectors
  1. gcd.py
  
      use two ways(iterative / recursive) to find the greatest common divisor
-2. fibonacci.py
+ 2. hanoi.py
+
+    Tower of hanoi consists of three rods and some disks of different sizes, the object of the puzzle is to move the entire stack of disks to another rod, following some rules:<br>
+    >- Only one disk can be moved at a time
+    >- Each move consists of taking the upper disk from one stacks and placing it on the top of another stack
+    >- * No disk may be placed on top of a smaller disk  
+    Let's named the three rod of A, B and C, now we need to move n disks from A to C, and the program goes like:
+
+    ```python
+    def moveDisk(n, a, c):
+        print('Move No.', n, 'disk from', str(a), 'to', str(c))
+
+    def hanoi(n, a, c, b):
+        '''
+        input: move n disks from `a` to `c` in assist of `b`
+        No. 1 disk is the smallest disk
+        try to show the order of all the movement
+        return: none
+        '''
+        if n == 1:
+            moveDisk(1, a, c)
+        else:
+            hanoi(n - 1, a, b, c)  # move the n-1 tower from `a` to `b` in assist of `c`
+            moveDisk(n, a, c)  # move No.n disk from `a` to `c`
+            hanoi(n - 1, b, c, a)  # move the n-1 tower from `a` to `b` in assist of `c`
+
+    hanoi(3, 'A', 'C', 'B')  # move 3 disk from A to C
+    ```
+
+ 3. fibonacci.py
 
     calculate the total number of female rabbits after n month(s), take the prerequisites
     that at the beginning there are one male and one female rabbit in a pen that are immature to be pregnant, and it takes one month for them to give birth to two rabbits(male and female), and all the rabbits never die.
@@ -102,4 +140,4 @@ Then if we want to produce a large image, we need more than one projectors
             return fib(n-1)+fib(n-2)  
     ```
 
-### 5. Complete Program
+### 3. Complete Program
