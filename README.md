@@ -3,14 +3,14 @@ learnpy
 ---
 [TOC]
 ## | Python Basic
-###1. Introduction to Python
+### 1. Introduction to Python
 
 ---
-###2. Core Elements of Programs
+### 2. Core Elements of Programs
 
 ---
 ## | Simple Program
-###3. Simple Algorithms
+### 3. Simple Algorithms
 
 ---
 1. bisectionSearch_1.py
@@ -25,8 +25,8 @@ learnpy
 The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
 
 >Thus, 
-- the Bisection Search converges on the order of $\log_2 N$ steps
-- Bisection Search works when value of function varies monotonically with input
+>- the Bisection Search converges on the order of $\log_2 N$ steps
+>- Bisection Search works when value of function varies monotonically with input
 
 
 1. decimalFractionToBinary.py
@@ -37,7 +37,7 @@ The program works as follows: you (the user) thinks of an integer between 0 (inc
 
     Newton-Raphson Method to get an approximate root of number. It says that if g is an approxiamte root of x, then `g - p(g)/p'(g)` is a better answer.
 
-###4. Functions
+### 4. Functions
 
 ---
 So far, we've 
@@ -56,29 +56,29 @@ But, there're problems with this approach
 **Function**: mechanism to achieve *decomposition* (sometimes called modularity) and *abstraction*
 
 Analogy ：  a PROJECTOR
->-it's a black box
--don't know how it works
--know the interface: input & output
--connect any electronics to it that can communicate with that input
--black box somehow converts image from input source to a wall or screen, magnifying it
--*ABSTRACTION*：do not need to know how projector works to use it 
+ >- it's a black box
+ >- don't know how it works
+ >- know the interface: input & output
+ >- connect any electronics to it that can communicate with that input
+ >- black box somehow converts image from input source to a wall or screen, magnifying it
+ >- *ABSTRACTION*：do not need to know how projector works to use it 
 
 Then if we want to produce a large image, we need more than one projectors
->-all projectors work together to produce larger image
--*DECOMPOSITION* ：different devices work together to achieve an end goal
+>- all projectors work together to produce larger image
+>- *DECOMPOSITION* ：different devices work together to achieve an end goal
 
 ==>
 >*DECOMPOSITION* ： divide code into **modules**
- - **self-contained**
- - used to **break up** code
- - intended to be **reusable**
- - keep code **organized**
- - keep code **coherent**
+ >- **self-contained**
+ >- used to **break up** code
+ >- intended to be **reusable**
+ >- keep code **organized**
+ >- keep code **coherent**
 *ABSTRACTION* ：suppress details of method to compute something from use off that computation
- - think of a piece of code as a **black box**
- - cannot see details
- - do not need or want to see details
- - hide tedious coding details
+ >- think of a piece of code as a **black box**
+ >- cannot see details
+ >- do not need or want to see details
+ >- hide tedious coding details
  
  **function** has a name, parameters(0 or more), a docstring(optional), a body
  ![](http://img.blog.csdn.net/20180111165535757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHNvb3R3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
@@ -88,6 +88,6 @@ Then if we want to produce a large image, we need more than one projectors
  
      use two ways(iterative / recursive) to find the greatest common divisor
 
-###5. Complete Program
+### 5. Complete Program
 
 ---
