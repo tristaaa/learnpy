@@ -1,18 +1,12 @@
-learnpy 
+# learnpy 
 
----
 [TOC]
 ## | Python Basic
 ### 1. Introduction to Python
-
----
 ### 2. Core Elements of Programs
 
----
 ## | Simple Program
 ### 3. Simple Algorithms
-
----
 1. bisectionSearch_1.py
 
     get the guess square root of x which is greater than 1
@@ -38,8 +32,6 @@ The program works as follows: you (the user) thinks of an integer between 0 (inc
     Newton-Raphson Method to get an approximate root of number. It says that if g is an approxiamte root of x, then `g - p(g)/p'(g)` is a better answer.
 
 ### 4. Functions
-
----
 So far, we've 
 
 - covered language mechanism, the first notion of `while` and `for` loops, and therefore, of iterations.
@@ -111,5 +103,3 @@ Then if we want to produce a large image, we need more than one projectors
     ```
 
 ### 5. Complete Program
-
----
