@@ -27,9 +27,9 @@
     this create a program that guesses a secret number!
 The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
 
->Thus, 
->- the Bisection Search converges on the order of $\log_2 N$ steps
->- Bisection Search works when value of function varies monotonically with input
+Thus, 
+- the Bisection Search converges on the order of $\log_2 N$ steps
+- Bisection Search works when value of function varies monotonically with input
 
 
 1) decimalFractionToBinary.py
@@ -93,7 +93,7 @@ Then if we want to produce a large image, we need more than one projectors
     Tower of hanoi consists of three rods and some disks of different sizes, the object of the puzzle is to move the entire stack of disks to another rod, following some rules:<br>
     >- Only one disk can be moved at a time
     >- Each move consists of taking the upper disk from one stacks and placing it on the top of another stack
-    >- * No disk may be placed on top of a smaller disk  
+    >- No disk may be placed on top of a smaller disk  
     Let's named the three rod of A, B and C, now we need to move n disks from A to C, and the program goes like:
 
     ```python
