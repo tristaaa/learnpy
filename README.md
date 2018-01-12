@@ -1,11 +1,10 @@
 # learnpy 
 
-[TOC]
+| Python Basic
+
+
 ## | Python Basic
 ### 1. Introduction to Python
-    
----
-pass
 
 ### 2. Core Elements of Programs
 
