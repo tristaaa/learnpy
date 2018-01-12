@@ -5,7 +5,10 @@
 &ensp;&ensp;[Core Elements of Programs](https://github.com/tristaaa/learnpy/blob/master/README.md#-core-elements-of-programs)<br>
 [| Simple Program](https://github.com/tristaaa/learnpy/blob/master/README.md#--simple-program)<br>
 &ensp;&ensp;[Simple Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#-simple-algorithms)<br>
+&ensp;&ensp;&ensp;&ensp;[Bisection Search](https://github.com/tristaaa/learnpy/blob/master/README.md#-bisection-search)<br>
 &ensp;&ensp;[Functions](https://github.com/tristaaa/learnpy/blob/master/README.md#-functions)<br>
+&ensp;&ensp;&ensp;&ensp;[Iterative or Recursive](https://github.com/tristaaa/learnpy/blob/master/README.md#-iterative-or-recursive)<br>
+&ensp;&ensp;&ensp;&ensp;[Divide and Conquer](https://github.com/tristaaa/learnpy/blob/master/README.md#-divide-and-conquer)<br>
 &ensp;&ensp;[Complete Program](https://github.com/tristaaa/learnpy/blob/master/README.md#-complete-program)<br>
 
 
@@ -27,7 +30,7 @@
     this create a program that guesses a secret number!
 The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
 
-Thus, 
+#### BISECTION SEARCH 二分法查找
 - the Bisection Search converges on the order of $\log_2 N$ steps
 - Bisection Search works when value of function varies monotonically with input
 
@@ -53,7 +56,8 @@ But, there're problems with this approach
 - easy for small-scale problems
 - messy for larger issues
 - hard to keep track of details
-    
+
+---
 **Function**: mechanism to achieve *decomposition* (sometimes called modularity) and *abstraction*
 
 Analogy ：  a PROJECTOR
@@ -84,7 +88,7 @@ Then if we want to produce a large image, we need more than one projectors
  **function** has a name, parameters(0 or more), a docstring(optional), a body
  ![](http://img.blog.csdn.net/20180111165535757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHNvb3R3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
- ITERATIVE or RECURSIVE
+ #### ITERATIVE or RECURSIVE
  1) gcd.py
  
      use two ways(iterative / recursive) to find the greatest common divisor
@@ -139,5 +143,16 @@ Then if we want to produce a large image, we need more than one projectors
             # plus the newborn rabbit that are the children of the fib(n-2) rabbits
             return fib(n-1)+fib(n-2)  
     ```
+
+#### DIVIDE AND CONQUER algorithm分治法
+
+    Solve hard problems by breaking them into a set of sub-problems such that:
+    - sub-problems are easier to solve than the original
+    - solutions of the sub-problems can be combined to solve the original
+1) palindrome.py
+
+    test and show whether the input string is or not a palindrome
+    an example of the divide and conquer algorithm
+
 
 ### 2.3 Complete Program
