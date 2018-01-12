@@ -3,6 +3,10 @@
 [TOC]
 ## | Python Basic
 ### 1. Introduction to Python
+    
+---
+pass
+
 ### 2. Core Elements of Programs
 
 ## | Simple Program
