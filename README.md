@@ -87,6 +87,28 @@ Then if we want to produce a large image, we need more than one projectors
  1. gcd.py
  
      use two ways(iterative / recursive) to find the greatest common divisor
+2. fibonacci.py
+
+    calculate the total number of female rabbits after n month(s), take the prerequisites
+    that at the beginning there are one male and one female rabbit in a pen that are immature to be pregnant, and it takes one month for them to give birth to two rabbits(male and female), and all the rabbits never die.
+
+    So, when n=0(beginning), female=1; when n=1, female=1(pregnant); when n=2, female=2(one pregnant and another not)...
+
+    The program goes like the following:
+
+    ```python
+    def fib(n):
+        '''
+        input: n represent the month
+        return: the number of the total female after n mmonth(s)
+        '''
+        if n==0 or n==1:
+            return 1
+        else:
+            # the number equals to the number one month earlier:fib(n-1)
+            # plus the newborn rabbit that are the children of the fib(n-2) rabbits
+            return fib(n-1)+fib(n-2)  
+    ```
 
 ### 5. Complete Program
 
