@@ -24,7 +24,7 @@
 &ensp;&ensp;[Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#61computational-complexity)<br>
 &ensp;&ensp;[Searching and Sorting Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#62searching-and-sorting-algorithms)<br>
 [| Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#-plotting)<br>
-&ensp;&ensp;[Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#71poltting)<br>
+&ensp;&ensp;[Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#71poltting)<br>
 
 
 ## | Python Basic
@@ -46,8 +46,8 @@
 The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
 
 #### BISECTION SEARCH
-    the Bisection Search converges on the order of $\log_2 N$ steps
-    Bisection Search works when value of function varies monotonically with input
+the Bisection Search converges on the order of $\log_2 N$ steps
+Bisection Search works when value of function varies monotonically with input
 
 
 1) decimalFractionToBinary.py
@@ -159,7 +159,7 @@ Then if we want to produce a large image, we need more than one projectors
 
 #### DIVIDE AND CONQUER
 
-&ensp;&ensp;Solve hard problems by breaking them into a set of sub-problems such that:
+Solve hard problems by breaking them into a set of sub-problems such that:
     - sub-problems are easier to solve than the original
     - solutions of the sub-problems can be combined to solve the original
 1) palindrome.py
@@ -170,23 +170,23 @@ Then if we want to produce a large image, we need more than one projectors
 
 ### Complete Programming Experience:polysum
 
-A regular polygon has n number of sides. Each side has length s.
-The area of a regular polygon is:  $\0.25*n*s/2tan(π/n)$
-The perimeter of a polygon is: length of the boundary of the polygon
+A regular polygon has n number of sides. Each side has length s.<br>
+The area of a regular polygon is:  $\frac{0.25*n*s^2}{\tan(π/n)}$<br>
+The perimeter of a polygon is: length of the boundary of the polygon<br>
 Write a function called `polysum` that takes 2 arguments, n and s. This function should sum the area and square of the perimeter of the regular polygon. The function returns the sum, rounded to 4 decimal places.
 
-    ```python
-    import math
+```python
+import math
 
-    def polysum(n,s):
-        '''
-        input: n numbers of sides, each side has length s
-        return: the sum of the area and the square of the perimeter of the regular polygon
-        '''
-        p_area = (0.25*n*s*s)/math.tan(math.pi/n)
-        p_per = n*s
-        return round((p_area + p_per**2),4)
-    ```
+def polysum(n,s):
+    '''
+    input: n numbers of sides, each side has length s
+    return: the sum of the area and the square of the perimeter of the regular polygon
+    '''
+    p_area = (0.25*n*s*s)/math.tan(math.pi/n)
+    p_per = n*s
+    return round((p_area + p_per**2),4)
+```
 
 ## | Structured Types
 ### 3.1 Tuples and Lists
