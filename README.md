@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 # learnpy 
 
 [| Python Basic](https://github.com/tristaaa/learnpy/blob/master/README.md#-python-basic)<br>
@@ -46,7 +47,7 @@
 The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
 
 #### BISECTION SEARCH
-the Bisection Search converges on the order of $\log_2 N$ steps
+the Bisection Search converges on the order of \\(\log_2 N\\) steps
 Bisection Search works when value of function varies monotonically with input
 
 
@@ -171,7 +172,7 @@ Solve hard problems by breaking them into a set of sub-problems such that:
 ### Complete Programming Experience:polysum
 
 A regular polygon has n number of sides. Each side has length s.<br>
-The area of a regular polygon is:  $\frac{0.25*n*s^2}{\tan(π/n)}$<br>
+The area of a regular polygon is:  $\frac{0.25ns^2}{\tan(π/n)}$<br>
 The perimeter of a polygon is: length of the boundary of the polygon<br>
 Write a function called `polysum` that takes 2 arguments, n and s. This function should sum the area and square of the perimeter of the regular polygon. The function returns the sum, rounded to 4 decimal places.
 
