@@ -46,7 +46,7 @@
 The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
 
 #### BISECTION SEARCH
-the Bisection Search converges on the order of <img src="http://chart.googleapis.com/chart?cht=tx&chl=\log_2 N" style="border:none;"> steps
+the Bisection Search converges on the order of <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;log_2&space;N" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;log_2&space;N" title="log_2 N" /></a> steps
 Bisection Search works when value of function varies monotonically with input
 
 
