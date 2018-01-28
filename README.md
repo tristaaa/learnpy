@@ -194,9 +194,9 @@ def polysum(n,s):
 1) Introdution
     - An ordered sequence of elements, can mix element types
     - ***immutable***, cannot change element values, cannot delete element(s) from the tuple, but can delete the whole tuple 
-    - represented with parentheses
+    - represented with parentheses, ***()***
     - any object split with comma defaults to a tuple `t=1,2 #type(t) -> tuple`
-
+    
     ```python
     te = ()     # empty tuple
     to = (0,)   # tuple with one element
@@ -210,7 +210,6 @@ def polysum(n,s):
 
 2) Operators
     ```python
-    len((1,2,3))    # 3
     (1,) + (2,3)    # (1,2,3)
     ('hi',)*4       # ('hi','hi','hi','hi')
     3 in (1,2,3)    # True
@@ -218,23 +217,68 @@ def polysum(n,s):
     ```
 
 >tuple can be used to exchange two elements very fast: `x,y = y,x` or `(x,y) = (y,x)`
+and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
 3) Functions
-    ~~cmp(t1, t2)~~  
-    in py3, import operator and use 
-operator.lt(a, b)
-operator.le(a, b)
-operator.eq(a, b)
-operator.ne(a, b)
-operator.ge(a, b)
-operator.gt(a, b)
-operator.__lt__(a, b)
-operator.__le__(a, b)
-operator.__eq__(a, b)
-operator.__ne__(a, b)
-operator.__ge__(a, b)
-operator.__gt__(a, b)
 
+    - ~~cmp(t1, t2)~~  in py3, import operator and use operator.lt(a, b) operator.le(a, b) operator.eq(a, b) operator.ne(a, b) operator.ge(a, b) operator.gt(a, b)
+    Only available when elements of t1, t2 are the same type, if one of the length of a tuple is less than another, it's smaller(Assume the former elements are the same) 
+    - len(t)
+    - max(t)   # get the max element of the tuple  `t`
+    - min(t)
+    - tuple(seq)    # turn the list, dictionary, set `seq` to tuple, if `seq` is dictionary, return the tuple of keys
+
+#### LIST
+1) Introdution
+    - ordered sequence of information, which means accessible by index
+    - a list is denoted bu square brackets, ***[]***
+    - a list contains elements
+     - usually homogeneous (i.e., all integers/all strings)
+     - can contain mixed types(not common)
+    - list is ***mutable***
+
+    ```python
+    le = []     # empty list
+    l = [2,"one",3]
+    l[0]        # evaluates to 2
+    l[1:2]      # slice list, evaluates to ["one",]
+    l[1] = 4    # list `l` turn out to be [2, 4, 3]
+    l[2] + 2    # evaluate to 5
+
+    - index can be a variable or expression, must evaluate to an int
+    i = 2
+    l[i-1]      # evaluate to 4, since l[1] is 4 from above
+    ```
+
+2) Operators
+    ```python
+    [1] + [2,3]    # [1,2,3]
+    ['hi']*4       # ['hi','hi','hi','hi']
+    3 in [1,2,3]   # True
+    3 in [1,2,[3]] # False
+    for e in [1,2,3]
+    ```
+
+3) Functions & Operations
+    - len(l)
+    - max(l)   # get the max element of the list  `l`
+    - min(l)
+    - list(seq)    # turn the tuple, dictionary, set `seq` to list, if `seq` is dictionary, return the list of keys
+
+    ```python
+    L = [1,2,5]
+    L.append(7)    # list `L` turn out to be [1, 2, 5, 7]
+    L.count(7)     # return the times that element 7 occurs in the list: 1
+    L.extend(['new'])   # list `L` turn out to be [1, 2, 5, 7, 'new']
+    L.index('new') # return 4, if `obj` is not in the list, gives error
+    L.insert(0,'first') # list `L` turn out to be ['first', 1, 2, 5, 7, 'new']
+    L.pop()        # default to remove the last element of the list, and return the removed element: 'new'
+    L.pop(0)       # remove the element of index 0, thus return 'first'
+    L.remove(7)    # remove the element 7, list `L` turn out to be [1, 2, 5]
+    L.reverse()    # reverse the order of the list, list `L` turn out to be [5, 2, 1]
+    L.sort()       # sort the elements of the list, list `L` turn out to be [1, 2, 5]
+    sorted(L)      # sort the elements of the list, list `L` turn out to be [1, 2, 5] in the scope of global
+    ```
 
 ### 3.2 Dictionary
 
