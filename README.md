@@ -1,15 +1,30 @@
 # learnpy 
 
 [| Python Basic](https://github.com/tristaaa/learnpy/blob/master/README.md#-python-basic)<br>
-&ensp;&ensp;[Introduction to Python](https://github.com/tristaaa/learnpy/blob/master/README.md#-introduction-to-python)<br>
-&ensp;&ensp;[Core Elements of Programs](https://github.com/tristaaa/learnpy/blob/master/README.md#-core-elements-of-programs)<br>
-[| Simple Program](https://github.com/tristaaa/learnpy/blob/master/README.md#--simple-program)<br>
-&ensp;&ensp;[Simple Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#-simple-algorithms)<br>
-&ensp;&ensp;&ensp;&ensp;[Bisection Search](https://github.com/tristaaa/learnpy/blob/master/README.md#-bisection-search)<br>
-&ensp;&ensp;[Functions](https://github.com/tristaaa/learnpy/blob/master/README.md#-functions)<br>
-&ensp;&ensp;&ensp;&ensp;[Iterative or Recursive](https://github.com/tristaaa/learnpy/blob/master/README.md#-iterative-or-recursive)<br>
-&ensp;&ensp;&ensp;&ensp;[Divide and Conquer](https://github.com/tristaaa/learnpy/blob/master/README.md#-divide-and-conquer)<br>
-&ensp;&ensp;[Complete Program](https://github.com/tristaaa/learnpy/blob/master/README.md#-complete-program)<br>
+&ensp;&ensp;[Introduction to Python](https://github.com/tristaaa/learnpy/blob/master/README.md#11-introduction-to-python)<br>
+&ensp;&ensp;[Core Elements of Programs](https://github.com/tristaaa/learnpy/blob/master/README.md#12-core-elements-of-programs)<br>
+[| Simple Program](https://github.com/tristaaa/learnpy/blob/master/README.md#-simple-program)<br>
+&ensp;&ensp;[Simple Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#21-simple-algorithms)<br>
+&ensp;&ensp;&ensp;&ensp;[Bisection Search](https://github.com/tristaaa/learnpy/blob/master/README.md#bisection-search)<br>
+&ensp;&ensp;[Functions](https://github.com/tristaaa/learnpy/blob/master/README.md#22-functions)<br>
+&ensp;&ensp;&ensp;&ensp;[Iterative or Recursive](https://github.com/tristaaa/learnpy/blob/master/README.md#iterative-or-recursive)<br>
+&ensp;&ensp;&ensp;&ensp;[Divide and Conquer](https://github.com/tristaaa/learnpy/blob/master/README.md#divide-and-conquer)<br>
+&ensp;&ensp;[Complete Programming Experience:polysum](https://github.com/tristaaa/learnpy/blob/master/README.md#23-complete-programming-experience:polysum)<br>
+[| Structured Types](https://github.com/tristaaa/learnpy/blob/master/README.md#-structured-types)<br>
+&ensp;&ensp;[Tupels and Lists](https://github.com/tristaaa/learnpy/blob/master/README.md#31-tuples-and-lists)<br>
+&ensp;&ensp;[Dictionary](https://github.com/tristaaa/learnpy/blob/master/README.md#32-dictionary)<br>
+[| Midterm Exam](https://github.com/tristaaa/learnpy/blob/master/README.md#-midterm-exam)<br>
+[| Good Programming](https://github.com/tristaaa/learnpy/blob/master/README.md#-good-programming)<br>
+&ensp;&ensp;[Testing and Debugging](https://github.com/tristaaa/learnpy/blob/master/README.md#41testing-and-debugging)<br>
+&ensp;&ensp;[Exceptions and Assertions](https://github.com/tristaaa/learnpy/blob/master/README.md#42exceptions-and-assertions)<br>
+[| Object Oriented Programming](https://github.com/tristaaa/learnpy/blob/master/README.md#-object-oriented-programming)<br>
+&ensp;&ensp;[Classes and Inheritance](https://github.com/tristaaa/learnpy/blob/master/README.md#51classes-and-inheritance)<br>
+&ensp;&ensp;[An Extended Example](https://github.com/tristaaa/learnpy/blob/master/README.md#52an-extended-example)<br>
+[| Algorithmic Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#-algorithmic-complexity)<br>
+&ensp;&ensp;[Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#61computational-complexity)<br>
+&ensp;&ensp;[Searching and Sorting Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#62searching-and-sorting-algorithms)<br>
+[| Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#-plotting)<br>
+&ensp;&ensp;[Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#71poltting)<br>
 
 
 ## | Python Basic
@@ -30,7 +45,7 @@
     this create a program that guesses a secret number!
 The program works as follows: you (the user) thinks of an integer between 0 (inclusive) and 100 (not inclusive). The computer makes guesses, and you give it input - is its guess too high or too low? Using bisection search, the computer will guess the user's secret number!
 
-#### BISECTION SEARCH 二分法查找
+#### BISECTION SEARCH
 - the Bisection Search converges on the order of $\log_2 N$ steps
 - Bisection Search works when value of function varies monotonically with input
 
@@ -57,7 +72,7 @@ But, there're problems with this approach
 - messy for larger issues
 - hard to keep track of details
 
----
+
 **Function**: mechanism to achieve *decomposition* (sometimes called modularity) and *abstraction*
 
 Analogy ：  a PROJECTOR
@@ -144,7 +159,7 @@ Then if we want to produce a large image, we need more than one projectors
             return fib(n-1)+fib(n-2)  
     ```
 
-#### DIVIDE AND CONQUER algorithm分治法
+#### DIVIDE AND CONQUER algorithm
 
     Solve hard problems by breaking them into a set of sub-problems such that:
     - sub-problems are easier to solve than the original
@@ -155,4 +170,59 @@ Then if we want to produce a large image, we need more than one projectors
     an example of the divide and conquer algorithm
 
 
-### 2.3 Complete Program
+### Complete Programming Experience:polysum
+
+    A regular polygon has n number of sides. Each side has length s.
+
+    The area of a regular polygon is:  $\0.25*n*s/2tan(π/n)$
+    The perimeter of a polygon is: length of the boundary of the polygon
+    Write a function called `polysum` that takes 2 arguments, n and s. This function should sum the area and square of the perimeter of the regular polygon. The function returns the sum, rounded to 4 decimal places.
+
+    ```python
+    import math
+
+    def polysum(n,s):
+        '''
+        input: n numbers of sides, each side has length s
+        return: the sum of the area and the square of the perimeter of the regular polygon
+        '''
+        p_area = (0.25*n*s*s)/math.tan(math.pi/n)
+        p_per = n*s
+        return round((p_area + p_per**2),4)
+    ```
+
+## | Structured Types
+### 3.1 Tuples and Lists
+
+### 3.2 Dictionary
+
+## | Midterm Exam
+
+## | Good Programming
+### 4.1 Testing and Debugging
+#### Black Box Testing and Glass Box Testing
+
+>Black-box testing is a method of software testing that tests the functionality of an application. Recall from the lecture that a way to think about black-box testing is to look at both:
+
+The possible paths through the specification.
+The possible boundary cases.
+Undoubtably many - if not all - of the listed tests look like they would be pretty good for testing the function size. However, we want you to think critically about the way size is specified - including possible boundary cases - and pick a set of tests that adequately and fully tests all paths and boundary conditions. Be sure the set of tests you pick does not have extraneous, useless, or repetitive tests.
+
+
+### 4.2 Exceptions and Assertions
+
+
+## | Object Oriented Programming
+### 5.1 Classes and Inheritance
+
+### 5.2 An Extended Example
+
+
+## | Algorithmic Complexity
+### 6.1 Computational Complexity
+
+### 6.2 Searching and Sorting Algorithms
+
+
+## | Plotting
+### 7.1 Plotting
