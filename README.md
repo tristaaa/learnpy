@@ -157,7 +157,7 @@ Then if we want to produce a large image, we need more than one projectors
             return fib(n-1)+fib(n-2)  
     ```
 
-#### DIVIDE AND CONQUER
+#### DIVIDE and CONQUER
 
 Solve hard problems by breaking them into a set of sub-problems such that:
     - sub-problems are easier to solve than the original
@@ -190,6 +190,20 @@ def polysum(n,s):
 
 ## | Structured Types
 ### 3.1 Tuples and Lists
+#### TUPLE
+- An ordered sequence of elements, can mix element types
+- ***immutable***, cannot change element values
+- represented with parentheses
+
+```
+te = () # empty tuple
+t = (2,"one",3)
+t[0] # evaluates to 2
+(2,"one",3) + (5,) # evaluates to (2,"one",3,5)
+t[1:2] # slice tuple, evaluates to ("one",)
+t[1] = 4 # gives eerror, can't modify object
+```
+
 
 ### 3.2 Dictionary
 
@@ -197,9 +211,9 @@ def polysum(n,s):
 
 ## | Good Programming
 ### 4.1 Testing and Debugging
-#### Black Box Testing and Glass Box Testing
+#### BLACK-BOX TESTING and GLASS-BOX TESTING
 
->Black-box testing is a method of software testing that tests the functionality of an application. Recall from the lecture that a way to think about black-box testing is to look at both:
+Black-box testing is a method of software testing that tests the functionality of an application. Recall from the lecture that a way to think about black-box testing is to look at both:
 
 - The possible paths through the specification.
 - The possible boundary cases.
