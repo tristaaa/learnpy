@@ -191,18 +191,49 @@ def polysum(n,s):
 ## | Structured Types
 ### 3.1 Tuples and Lists
 #### TUPLE
-- An ordered sequence of elements, can mix element types
-- ***immutable***, cannot change element values
-- represented with parentheses
+1) Introdution
+    - An ordered sequence of elements, can mix element types
+    - ***immutable***, cannot change element values, cannot delete element(s) from the tuple, but can delete the whole tuple 
+    - represented with parentheses
+    - any object split with comma defaults to a tuple `t=1,2 #type(t) -> tuple`
 
-```
-te = () # empty tuple
-t = (2,"one",3)
-t[0] # evaluates to 2
-(2,"one",3) + (5,) # evaluates to (2,"one",3,5)
-t[1:2] # slice tuple, evaluates to ("one",)
-t[1] = 4 # gives eerror, can't modify object
-```
+    ```python
+    te = ()     # empty tuple
+    to = (0,)   # tuple with one element
+    t = (2,"one",3)
+    t[0]        # evaluates to 2
+    (2,"one",3) + (5,)      # evaluates to (2,"one",3,5)
+    t[1:2]      # slice tuple, evaluates to ("one",)
+    t[1] = 4    # gives error, can't modify object
+    del te      # delete the empty tuple `te`
+    ```
+
+2) Operators
+    ```python
+    len((1,2,3))    # 3
+    (1,) + (2,3)    # (1,2,3)
+    ('hi',)*4       # ('hi','hi','hi','hi')
+    3 in (1,2,3)    # True
+    for e in (1,2,3)
+    ```
+
+>tuple can be used to exchange two elements very fast: `x,y = y,x` or `(x,y) = (y,x)`
+
+3) Functions
+    ~~cmp(t1, t2)~~  
+    in py3, import operator and use 
+operator.lt(a, b)
+operator.le(a, b)
+operator.eq(a, b)
+operator.ne(a, b)
+operator.ge(a, b)
+operator.gt(a, b)
+operator.__lt__(a, b)
+operator.__le__(a, b)
+operator.__eq__(a, b)
+operator.__ne__(a, b)
+operator.__ge__(a, b)
+operator.__gt__(a, b)
 
 
 ### 3.2 Dictionary
