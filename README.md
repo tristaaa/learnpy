@@ -438,7 +438,43 @@ Black-box testing is a method of software testing that tests the ***functionalit
 
 A path-complete glass box test suite would find test cases that go through every possible path in the code. This is different from black-box testing, because in black-box testing you only have the function specification. For glass-box testing, you actually know how the function you are testing is defined. Thus you can use this definition to figure out how many different paths through the code exist, and then pick a test suite based on that knowledge.
 
+#### BUGS
+1) Runtime Bugs
 
+    Overt vs. covert:<br>
+    - ***Overt*** has an obvious manifestation - code crashes or runs forever
+    - ***Covert*** has no obvious manifestation - code returns a value, which may be incorrect but hard to determine
+
+    Persistent vs. intermittent:<br>
+    - ***Persistent*** occurs every time code is run
+    - ***Intermittent*** only occurs some  times, even if run on same input
+
+2) Debugging
+
+    - steep learning curve
+    - goal is to have a bug-free program
+    - tools
+        - built in to IDE and Anaconda
+        - Python Tutor
+        - print statement
+        - use your brain, be systematic in your hunt
+
+    Logic Error(hard):
+    - think before writing code
+    - draw pictures, take break
+    - explain code to some one else
+
+    Steps:
+    - study program code
+        - ask how did I get the unexpected result
+        - don't ask what is wrong
+        - is it part of a family?
+    - scientific method
+        - study available data
+        - form hypothesis
+        - repeatable experiemnts
+        - pick simplest input to test with
+        
 ### 4.2 Exceptions and Assertions
 
 
