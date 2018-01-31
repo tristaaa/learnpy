@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#! /usr/bin/env python3
+# -*- coding:utf-8 -*-
 
 def deep_reverse(L):
     """ assumes L is a list of lists whose elements are ints
