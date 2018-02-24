@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-balance = 4773
-annualInterestRate = 0.2
+balance = 999999
+annualInterestRate = 0.18
 
 def getLowestPayment(balance, annualInterestRate):
     '''
@@ -13,7 +13,7 @@ def getLowestPayment(balance, annualInterestRate):
         monthlyUpdatedBalance = monthlyUnpaidBalance * ( 1 + annualInterestRate / 12 )
         return monthlyUpdatedBalance
 
-    minimalFixedMonthlyPayment = 10
+    minimalFixedMonthlyPayment = 90325.02
     balance0 = balance
     while True:
         balance = balance0
@@ -21,7 +21,8 @@ def getLowestPayment(balance, annualInterestRate):
             balance = getRemainingBalance(balance, annualInterestRate, minimalFixedMonthlyPayment)
         if balance <=0:
             break
-        minimalFixedMonthlyPayment +=10
-    print('Lowest Payment:', minimalFixedMonthlyPayment)
+        print('balance:',balance,'p: ',minimalFixedMonthlyPayment)
+        minimalFixedMonthlyPayment +=0.01
+    print('Lowest Payment:', minimalFixedMonthlyPayment,'b:',balance)
 
 getLowestPayment(balance,annualInterestRate)
