@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-def closest_power(base, num):
+dedef closest_power(base, num):
     '''
     base: base of the exponential, integer > 1
     num: number you want to be closest to, integer > 0
