@@ -1,7 +1,12 @@
-# -*- coding: utf-8 -*-
+#! /usr/bin/env python3
+# -*- coding:utf-8 -*-
+
 balance = 320000
 annualInterestRate = 0.2
+
+
 def increment():
+
 
 def getLowestPaymentBisection(balance, annualInterestRate):
     '''
@@ -12,23 +17,26 @@ def getLowestPaymentBisection(balance, annualInterestRate):
 
     def getRemainingBalance(balance, annualInterestRate, monthlyPayment):
         monthlyUnpaidBalance = balance - monthlyPayment
-        monthlyUpdatedBalance = monthlyUnpaidBalance * ( 1 + annualInterestRate / 12 )
+        monthlyUpdatedBalance = monthlyUnpaidBalance * \
+            (1 + annualInterestRate / 12)
         return monthlyUpdatedBalance
 
-    low = balance/12
-    high = (balance * (1 + annualInterestRate/12.0)**12) / 12.0
-    monthlyPayment = (low + high)/2
+    low = balance / 12
+    high = (balance * (1 + annualInterestRate / 12.0)**12) / 12.0
+    monthlyPayment = (low + high) / 2
     epsilon = 0.01
     balance0 = balance
-    while (high-low)/2>=epsilon:
+    while (high - low) / 2 >= epsilon:
         balance = balance0
-        for m in range(1,13):
-            balance = getRemainingBalance(balance, annualInterestRate, monthlyPayment)
+        for m in range(1, 13):
+            balance = getRemainingBalance(
+                balance, annualInterestRate, monthlyPayment)
         if balance > 0:
             low = monthlyPayment
         else:
             high = monthlyPayment
-        monthlyPayment = (low + high)/2
-    print('Lowest Payment:', round(monthlyPayment,2))
+        monthlyPayment = (low + high) / 2
+    print('Lowest Payment:', round(monthlyPayment, 2))
 
-getLowestPaymentBisection(balance,annualInterestRate)
+
+getLowestPaymentBisection(balance, annualInterestRate)

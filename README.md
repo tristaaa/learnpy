@@ -11,8 +11,8 @@
 &ensp;&ensp;&ensp;&ensp;[Divide and Conquer](https://github.com/tristaaa/learnpy/blob/master/README.md#divide-and-conquer)<br>
 &ensp;&ensp;[Complete Programming Experience:polysum](https://github.com/tristaaa/learnpy/blob/master/README.md#23-complete-programming-experiencepolysum)<br>
 [| Structured Types](https://github.com/tristaaa/learnpy/blob/master/README.md#-structured-types)<br>
-&ensp;&ensp;[Tupels and Lists](https://github.com/tristaaa/learnpy/blob/master/README.md#31-tuples-and-lists)<br>
-&ensp;&ensp;[Dictionary](https://github.com/tristaaa/learnpy/blob/master/README.md#32-dictionary)<br>
+&ensp;&ensp;[Tuples and Lists](https://github.com/tristaaa/learnpy/blob/master/README.md#31-tuples-and-lists)<br>
+&ensp;&ensp;[Dictionaries and Sets](https://github.com/tristaaa/learnpy/blob/master/README.md#32-dictionaries-and-sets)<br>
 [| Midterm Exam](https://github.com/tristaaa/learnpy/blob/master/README.md#-midterm-exam)<br>
 [| Good Programming](https://github.com/tristaaa/learnpy/blob/master/README.md#-good-programming)<br>
 &ensp;&ensp;[Testing and Debugging](https://github.com/tristaaa/learnpy/blob/master/README.md#41testing-and-debugging)<br>
@@ -175,18 +175,17 @@ The area of a regular polygon is:  <img src="https://latex.codecogs.com/gif.late
 The perimeter of a polygon is: length of the boundary of the polygon<br>
 Write a function called `polysum` that takes 2 arguments, n and s. This function should sum the area and square of the perimeter of the regular polygon. The function returns the sum, rounded to 4 decimal places.
 
-```python
-import math
+#### Credit Card Problems
+1) getRemainingBalance.py
 
-def polysum(n,s):
-    '''
-    input: n numbers of sides, each side has length s
-    return: the sum of the area and the square of the perimeter of the regular polygon
-    '''
-    p_area = (0.25*n*s*s)/math.tan(math.pi/n)
-    p_per = n*s
-    return round((p_area + p_per**2),4)
-```
+    calculate the remaining balance at the end of the year, using the given balance, annulInterestRate, monthlyPaymentRate
+2) getLowestPayment.py
+    
+    calculate the lowest fixed monthly payment(should be the multiple of ten) to pay off the balance within 12 months
+3) getLowestPaymentBisection.py 
+
+    use bisection search to fast the program
+
 
 ## | Structured Types
 ### 3.1 Tuples and Lists
@@ -205,7 +204,7 @@ def polysum(n,s):
     (2,"one",3) + (5,)      # evaluates to (2,"one",3,5)
     t[1:2]      # slice tuple, evaluates to ("one",)
     t[1] = 4    # gives error, can't modify object
-    del te      # delete the empty tuple `te`
+    del(te)      # delete the empty tuple `te`
     ```
 
 2) Operators
@@ -231,7 +230,7 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 #### LIST
 1) Introdution
     - ordered sequence of information, which means accessible by index
-    - a list is denoted bu square brackets, ***[]***
+    - a list is denoted by square brackets, ***[]***
     - a list contains elements
      - usually homogeneous (i.e., all integers/all strings)
      - can contain mixed types(not common)
@@ -280,21 +279,202 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
     sorted(L)      # sort the elements of the list, list `L` turn out to be [1, 2, 5] in the scope of global
     ```
 
-### 3.2 Dictionary
+### 3.2 Dictionaries and Sets
+#### DICTIONARY
+1) Introdution
+    - store pairs of data (key : value)
+    - a dictionary is denoted by curly braces, ***{}***
+    - `key` of dictionary is ***immutable***(int,float,string,tuple,bool), since looking up the stored position of the `value` should depend on the hash value of the `key` ((actually need an hashable object, but think of as immutable as all immutable types are hashable)) **careful with float type as a key, might have an accuracy issue ||| careful with tuple type as a key, cause error when tuple contains mutable types**
+    - `key` of dictionary is ***unique***, only the last `value` of the same `key` will be stored
+    - `value` of dictionary can be any type(immutable or mutable), even other dictionaries
+    - `value` of dictionary can be duplicates
+    - ***no order*** to keys and values
+    - can insert and search very fast, not impeding by the amount of keys, but take up lots of memory
+
+    ```python
+    dict = {}
+    dict = {1: 'a', 2: 'b', 3: 'c'}
+    dict[4] = 'd'   # add an entry
+    dict[4] = 'ddd' # change the value of key 4
+    del(dict[4])    # delete an entry
+    del(dict)       # delete the dictionary
+    ```
+
+2) Operators
+    ```python
+    3 in {1:'a',3:'c'}      # True
+    'a' in {1:'a',3:'c'}    # False
+    for key in dict.keys:   # same as  for key in dict:
+    for value in dict.values():
+    for key, value in dict.items():
+    ```
+
+3) Functions & Operations
+    - len(d)
+    - str(d)   # output the string format of the dictionary d
+
+    ```python
+    d = {'a':'apple'}
+    dict = {1: 'a', 2: 'b', 3: 'c', 9: [1,2]}
+    d.clear()   # clear all the elements of the dictionary d, after that d is an empty dictionary
+    dict.get(2) # 'b', get value from key
+    dict.__contains__(2)    # True if 2 is one of the keys
+    dict.items()    # dict_items([(1, 'a'), (2, 'b'), (3, 'c'), (9, [1,2])]), return the list of tuple element that contains each key and value pair
+    dict.keys() # dict_keys([1, 2, 3, 9])
+    dict.values()   # dict_values(['a', 'b', 'c', [1, 2]])
+    dict.setdefault(key, default=None)  # if key exists already, return the value; else if key not exist and no default value given, the new key's value will be None; else the new value will be the second parameter
+    d2 = {4:'d'}
+    dict.update(d2) # update the pair of key and value of d2 into dict
+    pop_obj = dict.pop(4) # delete the item which key is 4, return the value of key 4: 'd', so pop_obj is 'd'
+    pop_obj2 = dict.pop(6)  # if the key not exist, raise key error
+    pop_obj3 = dict.pop(6, 'NotFound')  # if the key not exist, but has second parameter, then return the second parameter, so pop_obj3 is 'NotFound'
+    dict.popitem()  # delete one random pair of key and value, and return it as a tuple, like (1, 'a')
+    newdict = dict.fromkeys(seq[,value])    # create a new dictionary which has the same number of elements of dict, keys of newdict will be set as the seq given, seq can be list, tuple, dictionary, set; if the second parameter is empty, all the value of newdict will be None, else all will be the value
+    
+    # ---------
+    # direct assignment & copy & deep copy
+    # direct assignment: dict2 is dict -> True
+    # copy: dict3 and dict are different objects, but their subobjects(like list) are point to the same object
+    # deep copy: not only dict4 and dict are different objects, their subobjects are also point to different object(completely independent)
+
+    import copy
+    dict = {1: 'a', 2: 'b', 9: [1,2]}
+    dic2 = dict
+    dict3 = dict.copy()
+    dict4 = copy.deepcopy(dict)
+    
+    dict[1] = 'aa'
+    dict[4] = 'd'
+    dict[9].append(4)
+
+    print(dict)     # {1: 'aa', 2: 'b', 4: 'd', 9: [1,2,4]}
+    print(dict2)    # {1: 'aa', 2: 'b', 4: 'd', 9: [1,2,4]}
+    print(dict3)    # {1: 'a', 2: 'b', 9: [1,2,4]}
+    print(dict4)    # {1: 'a', 2: 'b', 9: [1,2]}
+    ```
+
+4) biggest.py
+
+    small practice to use dictionary
+
+
+#### SET
+1) Introdution
+    - like dictionary, only stores keys
+    - elements are all unique and not ordered
+    - can do some set operations
+    - using `set()` to generate a set from a list, tuple, dictionary, set, string
+
+    ```python
+    se = set()    # an empty set, print(se) -> set()
+    s = set([1,2])  # print(s) -> {1,2}
+    s1 = set((1,3)) # print(s1) -> {1,3}
+    s2 = set({1: 'a', 4: 'd'})  # print(s2) -> {1,4}
+    s3 = set('hello')   # print(s3) -> {'o','h','l','e'}
+    ```
+
+2) Operators
+    ```python
+    a = set([0,2,4,6,8])
+    b = set([0,1,2,3,5,7])
+    ab = a & b          # print(ab) -> {0,2}
+    ab2 = a | b         # print(ab2) -> {0,1,2,3,4,5,6,7,8}
+    ab3 = a - b         # print(ab3) -> {8,4,6}
+    ab4 = a ^ b         # print(ab) -> {1,3,4,5,6,7,8}
+    2 in set([1,2,3])   # True
+    for i in set([1,2,3])
+    ```
+
+3) Functions & Operations
+    - len(s)
+    - set(seq)  seq can be tuple, list, dictionary, set, string
+
+    ```python
+    s = set([0,2,4,6])
+    s1 = set([0,1,2,3])
+
+    s.add(8)
+    s1.update([5,7,11,13])
+    s1.remove(13)   # s1.remove(99) will raise an error
+    s1.pop()    # remove one random element from s1, like elements are popped in the order they appear in the hash table, but its hash value can change
+    s1.discard(11)  # like remove(), but won't raise error when element doesn't exist
+    s1.issubset(s)  # False, return True if s1 is the subset of s
+    ss = s.intersection(s1)     # same as  ss = s & s1
+    ss2 = s.union(s1)           # same as  ss2 = s | s1
+    ss3 = s.difference(s1)      # same as ss3 = s - s1
+    ss4 = s.symmetric_difference(s1)    # same as ss4 = s ^ s1
+    s.clear()   # after that, s is an empty set
+    ```
+
+1) hangman.py
+    
+    hangman game
 
 ## | Midterm Exam
+1) closest_power.py
+
+    return the closest power of base**power to num, in case of a tie, return the smaller value
+2) deep_reverse.py
+
+    reverse the elements of the list L which elements are also list and reverse the elements of each elements of the list L
+3) isCharInStr_bisectionSearch_recursive.py
+
+    use bisection search to tell whether or not the char is in the alphabetized string aStr    
+4) score.py
+
+    return the score of the word, which is the result of applying fuction f to the scores of the word's two highest scoring letter
+
 
 ## | Good Programming
 ### 4.1 Testing and Debugging
 #### BLACK-BOX TESTING and GLASS-BOX TESTING
 
-Black-box testing is a method of software testing that tests the functionality of an application. Recall from the lecture that a way to think about black-box testing is to look at both:
+Black-box testing is a method of software testing that tests the ***functionality*** of an application. Recall from the lecture that a way to think about black-box testing is to look at both:
 
-- The possible paths through the specification.
-- The possible boundary cases.
+- The possible paths through the ***specification***.
+- The possible ***boundary*** cases.
 - Undoubtably many - if not all - of the listed tests look like they would be pretty good for testing the function size. However, we want you to think critically about the way size is specified - including possible boundary cases - and pick a set of tests that adequately and fully tests all paths and boundary conditions. Be sure the set of tests you pick does not have extraneous, useless, or repetitive tests.
 
 
+A path-complete glass box test suite would find test cases that go through every possible path in the code. This is different from black-box testing, because in black-box testing you only have the function specification. For glass-box testing, you actually know how the function you are testing is defined. Thus you can use this definition to figure out how many different paths through the code exist, and then pick a test suite based on that knowledge.
+
+#### BUGS
+1) Runtime Bugs
+
+    Overt vs. covert:<br>
+    - ***Overt*** has an obvious manifestation - code crashes or runs forever
+    - ***Covert*** has no obvious manifestation - code returns a value, which may be incorrect but hard to determine
+
+    Persistent vs. intermittent:<br>
+    - ***Persistent*** occurs every time code is run
+    - ***Intermittent*** only occurs some  times, even if run on same input
+
+2) Debugging
+
+    - steep learning curve
+    - goal is to have a bug-free program
+    - tools
+        - built in to IDE and Anaconda
+        - Python Tutor
+        - print statement
+        - use your brain, be systematic in your hunt
+
+    Logic Error(hard):
+    - think before writing code
+    - draw pictures, take break
+    - explain code to some one else
+
+    Steps:
+    - study program code
+        - ask how did I get the unexpected result
+        - don't ask what is wrong
+        - is it part of a family?
+    - scientific method
+        - study available data
+        - form hypothesis
+        - repeatable experiemnts
+        - pick simplest input to test with
+        
 ### 4.2 Exceptions and Assertions
 
 

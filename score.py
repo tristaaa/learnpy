@@ -1,4 +1,6 @@
-# -*- coding: utf-8 -*-
+#! /usr/bin/env python3
+# -*- coding:utf-8 -*-
+
 def score(word, f):
     """
        word, a string of length > 1 of alphabetical 
