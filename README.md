@@ -223,6 +223,7 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
     - ~~cmp(t1, t2)~~  in py3, import operator and use operator.lt(a, b) operator.le(a, b) operator.eq(a, b) operator.ne(a, b) operator.ge(a, b) operator.gt(a, b)
     Only available when elements of t1, t2 are the same type, if one of the length of a tuple is less than another, it's smaller(Assume the former elements are the same) 
     - len(t)
+    - sum(t)   # (should all be int or float)
     - max(t)   # get the max element of the tuple  `t`
     - min(t)
     - tuple(seq)    # turn the list, dictionary, set `seq` to tuple, if `seq` is dictionary, return the tuple of keys
@@ -260,6 +261,7 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
 3) Functions & Operations
     - len(l)
+    - sum(l)   # (should all be int or float)
     - max(l)   # get the max element of the list  `l`
     - min(l)
     - list(seq)    # turn the tuple, dictionary, set `seq` to list, if `seq` is dictionary, return the list of keys
@@ -311,6 +313,7 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
 3) Functions & Operations
     - len(d)
+    - sum(d)   # return the sum of the keys(should all be int or float)
     - str(d)   # output the string format of the dictionary d
 
     ```python
@@ -387,7 +390,8 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
 3) Functions & Operations
     - len(s)
-    - set(seq)  seq can be tuple, list, dictionary, set, string
+    - sum(s)    # (should all be int or float)
+    - set(seq)  # seq can be tuple, list, dictionary, set, string
 
     ```python
     s = set([0,2,4,6])
@@ -476,7 +480,126 @@ A path-complete glass box test suite would find test cases that go through every
         - pick simplest input to test with
         
 ### 4.2 Exceptions and Assertions
+#### EXCEPTIONS
+1) Types
+    
+    Some types of exceptions: 
+    - trying to access beyond list limits -> IndexError
+    - using inexistent key of dictionary (dic['emp']) -> KeyError
+    - referencing a non-existing variable, local or glabal name not found -> NameError
+    - trying to convert an inappropriate type -> TypeError
+    - mixing data types without coercion ( 'a'/4 ) -> TypeError
+    - python can't parse program, trying to use keywords as a variable name -> SyntaxError
+    - attribute reference fail, using inexistent attribute name of an object -> AttributeError
+    - operand type okay, but value is illegal -> ValueError
+    - IO system reports malfunction (e.g. file not found) -> IOError
 
+2) What to do
+
+    - fail silently: substitute default values or just continue; ***bad idea!*** cause user gets no warning
+    - return an "error" value: complicates code have to check for a special value
+    - stop execution, ***signal error*** condition: ***raise an exception***
+
+3) Dealing with Exceptions
+    ```python
+    try:
+        a= int(input("Tell me one number:"))
+        b= int(input("Tell me another number:"))
+        print(a/b)
+        print("Okay")
+    except:
+        print("Bug in user input.")
+        print("Outside")
+    ```
+
+    Handling specific exceptions:
+    ```python
+    try:
+        a = int(input("Tell me one number:"))
+        b = int(input("Tell me another number:"))
+        print("a/b = ", a/b)
+        print("a+b = ", a+b)
+    except ValueError:
+        print("Could not convert to a number.")
+    except ZeroDivisionError:
+        print("Can't divide by zero.")
+    except:
+        print("Something went very wrong.")
+    ```
+
+4) Other Exceptions
+
+    - ***else***: body of this is executed when execution of associated ***try*** body completes with no exceptions
+    - ***finally***: body of this is aleays executed after ***try***, ***else*** and ***except*** clauses, even if they raised another error or executed a ***break***, ***continue*** or ***return***  [useful for clean-up code that should be run no matter what else happened, like close a file]
+
+5) Using Exceptions
+
+    - ***raise***, control when to raise an exception by users, and program skips the next lines(same indentation): e.g. raise ValueError('error')
+    see --> get_ratio.py
+
+    ```python
+    while True:
+        try:
+            n = input("Please enter an integer:")
+            n = int(n)
+            break
+        except ValueError:
+            print("Input not a integer; try again")
+    print("Correct input of an integer~")
+    ```
+
+    ```python
+    data = []
+    file_name = input("Provide a name of a file of data")
+
+    try:
+        fh = open(file_name, 'r')
+    except IOError:
+        print('cannot open', file_name)
+    else:
+        for new in fh:
+            if new != '\n':
+                addIt = new[:-1].split(',') # remove trailing \n
+                data.append(addIt)
+    finally:
+        fh.close() # close file even if fail
+
+    gradeData = []
+    if data:
+        for student in data:
+            try:
+                name = student[0:-1]
+                grades = int(student[-1])
+                gradeData.append([name, [grades]])
+            except ValueError:
+                gradeData.append([student[:], []])
+    ```
+
+#### ASSERTIONS
+1) Introduction
+    
+    - want to be sure that assumptions on state of computation are as expected
+    - use an ***assert*** statement to raise an ***AssertionError*** exception if assumptions not met
+    - an example of good defensive programming
+
+    e.g.
+    ```python
+    def avg(grades): 
+        '''
+        Assumes: grades is a collection
+        if the length of grades is 0, then throw out the message: no grades data;
+        else return the average of the grades 
+        '''
+        assert not len(grades) == 0, 'no grades data'
+        return sum(grades) / len(grades)
+    ```
+
+    - Features:
+        - assertions dpn't allow a programmer to control response to unexpected conditions
+        - ensure that execution ***halts*** whenever an expected condition isn't met
+        - typically used to ***check inputs*** to functions procedures, but can be used anywhere
+        - can be used to ***check outputs*** of a function to avoid propagaring bad values
+        - can make it easier to locate a source of a bug
 
 ## | Object Oriented Programming
 ### 5.1 Classes and Inheritance
