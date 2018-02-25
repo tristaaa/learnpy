@@ -15,16 +15,16 @@
 &ensp;&ensp;[Dictionaries and Sets](https://github.com/tristaaa/learnpy/blob/master/README.md#32-dictionaries-and-sets)<br>
 [| Midterm Exam](https://github.com/tristaaa/learnpy/blob/master/README.md#-midterm-exam)<br>
 [| Good Programming](https://github.com/tristaaa/learnpy/blob/master/README.md#-good-programming)<br>
-&ensp;&ensp;[Testing and Debugging](https://github.com/tristaaa/learnpy/blob/master/README.md#41testing-and-debugging)<br>
-&ensp;&ensp;[Exceptions and Assertions](https://github.com/tristaaa/learnpy/blob/master/README.md#42exceptions-and-assertions)<br>
+&ensp;&ensp;[Testing and Debugging](https://github.com/tristaaa/learnpy/blob/master/README.md#41-testing-and-debugging)<br>
+&ensp;&ensp;[Exceptions and Assertions](https://github.com/tristaaa/learnpy/blob/master/README.md#42-exceptions-and-assertions)<br>
 [| Object Oriented Programming](https://github.com/tristaaa/learnpy/blob/master/README.md#-object-oriented-programming)<br>
-&ensp;&ensp;[Classes and Inheritance](https://github.com/tristaaa/learnpy/blob/master/README.md#51classes-and-inheritance)<br>
-&ensp;&ensp;[An Extended Example](https://github.com/tristaaa/learnpy/blob/master/README.md#52an-extended-example)<br>
+&ensp;&ensp;[Classes and Inheritance](https://github.com/tristaaa/learnpy/blob/master/README.md#51-classes-and-inheritance)<br>
+&ensp;&ensp;[An Extended Example](https://github.com/tristaaa/learnpy/blob/master/README.md#52-an-extended-example)<br>
 [| Algorithmic Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#-algorithmic-complexity)<br>
-&ensp;&ensp;[Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#61computational-complexity)<br>
-&ensp;&ensp;[Searching and Sorting Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#62searching-and-sorting-algorithms)<br>
+&ensp;&ensp;[Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#61-computational-complexity)<br>
+&ensp;&ensp;[Searching and Sorting Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#62-searching-and-sorting-algorithms)<br>
 [| Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#-plotting)<br>
-&ensp;&ensp;[Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#71poltting)<br>
+&ensp;&ensp;[Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#71-poltting)<br>
 
 
 ## | Python Basic
