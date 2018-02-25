@@ -503,8 +503,8 @@ A path-complete glass box test suite would find test cases that go through every
 3) Dealing with Exceptions
     ```python
     try:
-        a= int(input("Tell me one number:"))
-        b= int(input("Tell me another number:"))
+        a = int(input("Tell me one number:"))
+        b = int(input("Tell me another number:"))
         print(a/b)
         print("Okay")
     except:
@@ -582,7 +582,6 @@ A path-complete glass box test suite would find test cases that go through every
     - use an ***assert*** statement to raise an ***AssertionError*** exception if assumptions not met
     - an example of good defensive programming
 
-    e.g.
     ```python
     def avg(grades): 
         '''
@@ -595,11 +594,22 @@ A path-complete glass box test suite would find test cases that go through every
     ```
 
     - Features:
-        - assertions dpn't allow a programmer to control response to unexpected conditions
+        - assertions don't allow a programmer to control response to unexpected conditions
         - ensure that execution ***halts*** whenever an expected condition isn't met
         - typically used to ***check inputs*** to functions procedures, but can be used anywhere
         - can be used to ***check outputs*** of a function to avoid propagaring bad values
         - can make it easier to locate a source of a bug
+
+2) Where to use
+    
+    - goal is to spot bugs as soon as introduced and make clear where they happened
+    - use as a supplement to ***testing***
+    - ***raise exceptions*** if users supplies bad data input 
+    - use assertions to
+        - check ***types*** if arguments or values
+        - check that ***invariants*** on data structures are met
+        - check ***constraints*** on return values
+        - check for ***violations*** of constraints on procedure(e.g. no duplicates in a list)
 
 ## | Object Oriented Programming
 ### 5.1 Classes and Inheritance
