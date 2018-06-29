@@ -239,9 +239,10 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
     ```python
     le = []     # empty list
-    l = [2,"one",3]
+    l = [2,"one",3,8,9,0]
     l[0]        # evaluates to 2
-    l[1:2]      # slice list, evaluates to ["one",]
+    l[1:2]      # slice list, evaluates to ["one"]
+    l[1:4:2]    # slice list with some jump, evaluates to ["one",8]
     l[1] = 4    # list `l` turn out to be [2, 4, 3]
     l[2] + 2    # evaluate to 5
 
@@ -319,19 +320,30 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
     ```python
     d = {'a':'apple'}
     dict = {1: 'a', 2: 'b', 3: 'c', 9: [1,2]}
+
     d.clear()   # clear all the elements of the dictionary d, after that d is an empty dictionary
-    dict.get(2) # 'b', get value from key
+    dict.get(2) # 'b', get value from key, if key is not in the dictionary, returns None
+    dict.get(5,0)   # if the key, like 5, is not in the dictionary, using dict[5] would raises a KeyError, and  get(key, default) can avoid the error by returns the value: default, as in the eg: 0
+
     dict.__contains__(2)    # True if 2 is one of the keys
+
     dict.items()    # dict_items([(1, 'a'), (2, 'b'), (3, 'c'), (9, [1,2])]), return the list of tuple element that contains each key and value pair
+    
     dict.keys() # dict_keys([1, 2, 3, 9])
+    
     dict.values()   # dict_values(['a', 'b', 'c', [1, 2]])
+    
     dict.setdefault(key, default=None)  # if key exists already, return the value; else if key not exist and no default value given, the new key's value will be None; else the new value will be the second parameter
+    
+
     d2 = {4:'d'}
     dict.update(d2) # update the pair of key and value of d2 into dict
     pop_obj = dict.pop(4) # delete the item which key is 4, return the value of key 4: 'd', so pop_obj is 'd'
     pop_obj2 = dict.pop(6)  # if the key not exist, raise key error
     pop_obj3 = dict.pop(6, 'NotFound')  # if the key not exist, but has second parameter, then return the second parameter, so pop_obj3 is 'NotFound'
+    
     dict.popitem()  # delete one random pair of key and value, and return it as a tuple, like (1, 'a')
+    
     newdict = dict.fromkeys(seq[,value])    # create a new dictionary which has the same number of elements of dict, keys of newdict will be set as the seq given, seq can be list, tuple, dictionary, set; if the second parameter is empty, all the value of newdict will be None, else all will be the value
     
     # ---------
@@ -613,6 +625,137 @@ A path-complete glass box test suite would find test cases that go through every
 
 ## | Object Oriented Programming
 ### 5.1 Classes and Inheritance
+#### Object Oriented Programming(OOP)
+1) Object
+    - features: each object has 
+        - a ***type***
+        - an internal ***data representation*** (primitive or composite)
+        - a set of procedures for ***ineraction*** with the object
+    - each instance is a particular type of object
+        - eg. 123 is an instance of an **int**
+        - str0 = "hello"  --> str0 is an instance of a **string** 
+
+    - objects are a ***data abstraciton*** that capture:
+        - internal ***representation*** through data attributes
+        - ***interface*** for interacting with object through methods(procedures), defines behaviors but hides implementation
+    - can ***create new instances*** of objects
+    - can ***destroy objects***
+        - explicitly using **del** 
+        - or just "forget" about them: Python system will reclaim destroyed or inaccessible objects --- called "grabage collection"
+
+2) User Defined Objects with Classes
+    - creating the class involves:
+        - defining the class name
+        - defining class atttributes
+    - using the class involves:
+        - creating new instances of objects
+        - doing operations on the instances
+
+3) Advantages of OOP
+    - ***bundke data into packages*** together with procedures that work on them through well-defined interfaces
+    - ***devide-and-conquer*** development
+        - implement and test behavior of each class separately
+        - increased modularity reduces complexity
+    - classes make it easy to ***reuse*** code
+        - many Python medules define new classes
+        - each class has separate environment(no collision on function names)
+        - inheritance allows subclasses to redefine or extend a selected subset of a superclass' behavior
+
+
+#### Class Instance
+1) Define Own Types
+    - use **class** keyword to define a new type:
+    '''python
+    class Coordinate(object):
+        #<define attributes here>
+    '''
+    - similiar to **def**, indent code to indicate which statements are part of the class definition
+    - the word **object** means that **Coordinate** is a Python object and inherits all its attributes(coming soon)
+        - **Coordinate** is a subclass of **object**
+        - **object** is a superclass of **Coordinate** 
+
+2) Attributes
+    - data and procedures that belong to the class
+    - ***data*** attributes:
+        - think of data as other objects that make up the class
+        - eg. an coordinate is made up of two numbers
+    - procedural attributes(***methods***)
+        - think of methods as functions that only work with this class
+        - eg. you can define a distance between two coordinate objects but there is no meaning to a distance between two list objects
+
+3) Defining How to Create an Instance of a Class
+    - using a special method called ***__init__*** to initialize some data attributes
+
+    '''python
+    class Coordinate(object):
+        def __init__(self, x, y):
+        """
+        self : parameter to refer to an instance of the class
+        x, y : what data initializes a **Coordinate** object
+        self.x, self.y : two data attributes for every **Coordinate** object
+        """
+            self.x = x
+            self.y = y
+    '''
+
+#### Methods
+1) Definition
+    - procedural attribute, like a function that works only with this class
+    - python always passes the actual object as the first atgument, convention is to use **self** as the name of the first atgument of all methods
+    - the . operator is used to access any attribute: a **data** attributeof an object or a **method** of an object
+
+2) Eg for Define a Method for Class
+
+    '''python
+    class Coordinate(object):
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+        def distance(self, other):
+            x_diff_sq = (self.x-other.x)**2
+            y_diff_sq = (self.y-other.y)**2
+            return (x_diff_sq + y_diff_sq)**0.5
+
+
+    c= Coordinate(3,4)
+    origin = Coordinate(0,0)
+    print(c.distance(origin)) # shows 5.0
+    print(Coordinate(c, origin)) # also shows 5.0, equivalent to the previous one
+
+    '''
+    - think of **Coordinate** as pointing to a frame:
+        - within the scope of that frame we created methods
+        - **Coordiante.distance** gets the value of **Coordiante (a frame)**, then looks up the value associated with **distance (a procedure)**, the invokes it(which requires two arguments)
+        - **c.distance** inherits the **distance** from the class definition, and automatically use the **c** as the first atgument
+
+3) Print Representation of an Object
+    - use print(instance) method would give out **uninformative** result
+    - should define a **__str__** method for a class
+    - Python calls the **__str__** method when uesd with print on the class object
+    - you choose what it does! Say that when we print a **Coordinate** object, want to show: <3,4>
+    - eg:
+
+    '''python
+        def __str__(self):
+            return "<"+ str(self.x) + "," + str(self.y) + ">"
+
+    print(c) # it shows <3,4>
+    '''
+
+4) Wrapping your Head Around Types and Class
+    '''python
+        print(type(c)) #it shows <class __main__.Coordinate>
+        print(Coordinate) # it also shows <class __main__.Coordinate>
+        print(type(Coordinate)) # it shows <type 'type'> 
+
+        #can use isinstance() to check if an object is an instance of a class
+        print(isinstance(c, Coordinate)) # it returns True
+    '''
+
+
+
+#### Class Examples
+
 
 ### 5.2 An Extended Example
 
