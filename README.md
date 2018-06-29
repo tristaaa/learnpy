@@ -262,10 +262,10 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
 3) Functions & Operations
     - len(l)
-    - sum(l)   # (should all be int or float)
-    - max(l)   # get the max element of the list  `l`
+    - sum(l)   `# (should all be int or float)`
+    - max(l)   `# get the max element of the list`
     - min(l)
-    - list(seq)    # turn the tuple, dictionary, set `seq` to list, if `seq` is dictionary, return the list of keys
+    - list(seq)    `# turn the tuple, dictionary, set seq to list, if seq is dictionary, return the list of keys`
 
     ```python
     L = [1,2,5]
@@ -314,8 +314,8 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
 3) Functions & Operations
     - len(d)
-    - sum(d)   # return the sum of the keys(should all be int or float)
-    - str(d)   # output the string format of the dictionary d
+    - sum(d)   `# return the sum of the keys(should all be int or float)`
+    - str(d)   `# output the string format of the dictionary d`
 
     ```python
     d = {'a':'apple'}
@@ -323,34 +323,41 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
     d.clear()   # clear all the elements of the dictionary d, after that d is an empty dictionary
     dict.get(2) # 'b', get value from key, if key is not in the dictionary, returns None
-    dict.get(5,0)   # if the key, like 5, is not in the dictionary, using dict[5] would raises a KeyError, and  get(key, default) can avoid the error by returns the value: default, as in the eg: 0
+    dict.get(5,0) # if key(eg 5) isn't in the dictionary, then dict[5] will raise a KeyError, get(key, default) avoid the error by return the 2nd arg,  default 0
 
-    dict.__contains__(2)    # True if 2 is one of the keys
+    dict.__contains__(2) # True if 2 is one of the keys
 
-    dict.items()    # dict_items([(1, 'a'), (2, 'b'), (3, 'c'), (9, [1,2])]), return the list of tuple element that contains each key and value pair
+    #return the list of tuple element that contains each key and value pair
+    dict.items() # dict_items([(1, 'a'), (2, 'b'), (3, 'c'), (9, [1,2])]),
     
     dict.keys() # dict_keys([1, 2, 3, 9])
     
-    dict.values()   # dict_values(['a', 'b', 'c', [1, 2]])
+    dict.values() # dict_values(['a', 'b', 'c', [1, 2]])
     
-    dict.setdefault(key, default=None)  # if key exists already, return the value; else if key not exist and no default value given, the new key's value will be None; else the new value will be the second parameter
+    # if key exists, return the value; else if key not exist & with no default value, 
+    #the new key's value will be None; else the new value will be the 2nd arg
+    dict.setdefault(key, default=None)  
     
 
     d2 = {4:'d'}
     dict.update(d2) # update the pair of key and value of d2 into dict
     pop_obj = dict.pop(4) # delete the item which key is 4, return the value of key 4: 'd', so pop_obj is 'd'
     pop_obj2 = dict.pop(6)  # if the key not exist, raise key error
-    pop_obj3 = dict.pop(6, 'NotFound')  # if the key not exist, but has second parameter, then return the second parameter, so pop_obj3 is 'NotFound'
+    pop_obj3 = dict.pop(6, 'NotFound')  # if key not exist, and has the 2nd arg, then return the 2nd arg.  pop_obj3='NotFound'
     
     dict.popitem()  # delete one random pair of key and value, and return it as a tuple, like (1, 'a')
     
-    newdict = dict.fromkeys(seq[,value])    # create a new dictionary which has the same number of elements of dict, keys of newdict will be set as the seq given, seq can be list, tuple, dictionary, set; if the second parameter is empty, all the value of newdict will be None, else all will be the value
+
+    # create a new dictionary which has the same number of elements in dict,
+    # keys of newdict will be set as the seq given, seq can be list, tuple, dictionary, set;
+    # if the 2nd arg is empty, all the value of newdict will be None, else all will be the value
+    newdict = dict.fromkeys(seq[,value])    
     
     # ---------
     # direct assignment & copy & deep copy
     # direct assignment: dict2 is dict -> True
-    # copy: dict3 and dict are different objects, but their subobjects(like list) are point to the same object
-    # deep copy: not only dict4 and dict are different objects, their subobjects are also point to different object(completely independent)
+    # copy: dict3 and dict are different objs, but their subobjs(like list) point to the same obj
+    # deep copy: not only dict4 and dict are different objs, their subobjs also point to different objs(completely independent)
 
     import copy
     dict = {1: 'a', 2: 'b', 9: [1,2]}
@@ -402,8 +409,8 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 
 3) Functions & Operations
     - len(s)
-    - sum(s)    # (should all be int or float)
-    - set(seq)  # seq can be tuple, list, dictionary, set, string
+    - sum(s)    `# (should all be int or float)`
+    - set(seq)  `# seq can be tuple, list, dictionary, set, string`
 
     ```python
     s = set([0,2,4,6])
@@ -412,7 +419,11 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
     s.add(8)
     s1.update([5,7,11,13])
     s1.remove(13)   # s1.remove(99) will raise an error
-    s1.pop()    # remove one random element from s1, like elements are popped in the order they appear in the hash table, but its hash value can change
+    
+    # remove one random element from s1, as elements are popped in the order they appear 
+    # in the hash table, but its hash value can change
+    s1.pop()    
+
     s1.discard(11)  # like remove(), but won't raise error when element doesn't exist
     s1.issubset(s)  # False, return True if s1 is the subset of s
     ss = s.intersection(s1)     # same as  ss = s & s1
@@ -541,12 +552,12 @@ A path-complete glass box test suite would find test cases that go through every
 
 4) Other Exceptions
 
-    - **else**: body of this is executed when execution of associated **try** body completes with no exceptions
-    - **finally**: body of this is aleays executed after **try**, **else** and **except** clauses, even if they raised another error or executed a **break**, **continue** or **return**  [useful for clean-up code that should be run no matter what else happened, like close a file]
+    - **else**: Executed when execution of associated **try** body completes with no exceptions
+    - **finally**: Always executed after **try**, **else**, **except** clauses, even if they (raised another error) or (executed a **break**, **continue**, **return**)    [useful for clean-up code that should be run no matter what else happened, like 'close a file']
 
 5) Using Exceptions
 
-    - **raise**, control when to raise an exception by users, and program skips the next lines(same indentation): e.g. raise ValueError('error')
+    - **raise**, control when to raise an exception by users, and program skips the next lines(same indentation): `e.g. raise ValueError('error')`
     see --> get_ratio.py
 
     ```python
@@ -772,13 +783,13 @@ A path-complete glass box test suite would find test cases that go through every
             return Coordinate(self.x - other.x, self.y - other.y)
 
     foo = c.sub(origin)
-    print(foo) # it shows <3,4> , since we difined __str__ method before
+    print(foo) # it shows <3,4> , since we defined __str__ method before
     ```
 
 
 #### Class Examples
-1) Ecample: Fraction
-    -create a **new type** to represent an number as a fraction
+1) Example: Fraction
+    - create a **new type** to represent an number as a fraction
     - **internal representation** is two integer:
         - numerator # top
         - denominator # under
@@ -848,9 +859,41 @@ A path-complete glass box test suite would find test cases that go through every
         - member(e)     -> return True if integer e is in set, Flase else
         - remove(e)     -> remove integer e from set, error if not presenth
     - eg:
+
     ``python
     class intSet(object):
-        def __
+        def __init__(self):
+            self.vals = []
+        def insert(self, e):
+            if ont e in self.vals:
+                self.vals.append(e)
+        def member(self, e):
+            retrun e in self.vals
+        def remove(self, e):
+            try:
+                self.vals.remove(e)
+            except:
+                raise ValueError(str(e) + "not found")
+        def __str__(self):
+            self.vals.sort()
+            result = ''
+            for e in self.vals:
+                result = result + str(e) + ","
+            return "{" + result[:-1] + "}"
+    
+    s = intSet()
+    print(s) # it shows {}
+    s.insert(2)
+    s.insert(3)
+    s.insert(2)
+    print(s) # it shows {2,3}
+    s.member(3) # it shows True
+    s.remove(2)
+    print(s) # it shows {3}
+
+    # it raises an self-defined error -> ValueError: 3 not found   
+    # following by the system defined error -> ValuError: list.remove(x): x not in list
+    s.remove(2) 
     ```
 
 
