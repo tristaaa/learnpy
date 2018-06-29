@@ -31,4 +31,7 @@ print(s) # it shows {2,3}
 s.member(3) # it shows True
 s.remove(2)
 print(s) # it shows {3}
-s.remove(2) # it shows ValueError: 3 not found
+
+# it raises an self-defined error -> ValueError: 3 not found   
+# following by the system defined error -> ValuError: list.remove(x): x not in list
+s.remove(2) 
