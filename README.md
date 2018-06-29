@@ -192,8 +192,8 @@ Write a function called `polysum` that takes 2 arguments, n and s. This function
 #### TUPLE
 1) Introdution
     - An ordered sequence of elements, can mix element types
-    - ***immutable***, cannot change element values, cannot delete element(s) from the tuple, but can delete the whole tuple 
-    - represented with parentheses, ***()***
+    - **immutable**, cannot change element values, cannot delete element(s) from the tuple, but can delete the whole tuple 
+    - represented with parentheses, **()**
     - any object split with comma defaults to a tuple `t=1,2 #type(t) -> tuple`
     
     ```python
@@ -231,11 +231,11 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 #### LIST
 1) Introdution
     - ordered sequence of information, which means accessible by index
-    - a list is denoted by square brackets, ***[]***
+    - a list is denoted by square brackets, **[]**
     - a list contains elements
      - usually homogeneous (i.e., all integers/all strings)
      - can contain mixed types(not common)
-    - list is ***mutable***
+    - list is **mutable**
 
     ```python
     le = []     # empty list
@@ -286,12 +286,12 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 #### DICTIONARY
 1) Introdution
     - store pairs of data (key : value)
-    - a dictionary is denoted by curly braces, ***{}***
-    - `key` of dictionary is ***immutable***(int,float,string,tuple,bool), since looking up the stored position of the `value` should depend on the hash value of the `key` ((actually need an hashable object, but think of as immutable as all immutable types are hashable)) **careful with float type as a key, might have an accuracy issue ||| careful with tuple type as a key, cause error when tuple contains mutable types**
-    - `key` of dictionary is ***unique***, only the last `value` of the same `key` will be stored
+    - a dictionary is denoted by curly braces, **{}**
+    - `key` of dictionary is **immutable**(int,float,string,tuple,bool), since looking up the stored position of the `value` should depend on the hash value of the `key` ((actually need an hashable object, but think of as immutable as all immutable types are hashable)) **careful with float type as a key, might have an accuracy issue ||| careful with tuple type as a key, cause error when tuple contains mutable types**
+    - `key` of dictionary is **unique**, only the last `value` of the same `key` will be stored
     - `value` of dictionary can be any type(immutable or mutable), even other dictionaries
     - `value` of dictionary can be duplicates
-    - ***no order*** to keys and values
+    - **no order** to keys and values
     - can insert and search very fast, not impeding by the amount of keys, but take up lots of memory
 
     ```python
@@ -445,10 +445,10 @@ and thus tuple can be used to return more than one objects: `return (a, b, c)`
 ### 4.1 Testing and Debugging
 #### BLACK-BOX TESTING and GLASS-BOX TESTING
 
-Black-box testing is a method of software testing that tests the ***functionality*** of an application. Recall from the lecture that a way to think about black-box testing is to look at both:
+Black-box testing is a method of software testing that tests the **functionality** of an application. Recall from the lecture that a way to think about black-box testing is to look at both:
 
-- The possible paths through the ***specification***.
-- The possible ***boundary*** cases.
+- The possible paths through the **specification**.
+- The possible **boundary** cases.
 - Undoubtably many - if not all - of the listed tests look like they would be pretty good for testing the function size. However, we want you to think critically about the way size is specified - including possible boundary cases - and pick a set of tests that adequately and fully tests all paths and boundary conditions. Be sure the set of tests you pick does not have extraneous, useless, or repetitive tests.
 
 
@@ -458,12 +458,12 @@ A path-complete glass box test suite would find test cases that go through every
 1) Runtime Bugs
 
     Overt vs. covert:<br>
-    - ***Overt*** has an obvious manifestation - code crashes or runs forever
-    - ***Covert*** has no obvious manifestation - code returns a value, which may be incorrect but hard to determine
+    - **Overt** has an obvious manifestation - code crashes or runs forever
+    - **Covert** has no obvious manifestation - code returns a value, which may be incorrect but hard to determine
 
     Persistent vs. intermittent:<br>
-    - ***Persistent*** occurs every time code is run
-    - ***Intermittent*** only occurs some  times, even if run on same input
+    - **Persistent** occurs every time code is run
+    - **Intermittent** only occurs some  times, even if run on same input
 
 2) Debugging
 
@@ -508,9 +508,9 @@ A path-complete glass box test suite would find test cases that go through every
 
 2) What to do
 
-    - fail silently: substitute default values or just continue; ***bad idea!*** cause user gets no warning
+    - fail silently: substitute default values or just continue; **bad idea!** cause user gets no warning
     - return an "error" value: complicates code have to check for a special value
-    - stop execution, ***signal error*** condition: ***raise an exception***
+    - stop execution, **signal error** condition: **raise an exception**
 
 3) Dealing with Exceptions
     ```python
@@ -541,12 +541,12 @@ A path-complete glass box test suite would find test cases that go through every
 
 4) Other Exceptions
 
-    - ***else***: body of this is executed when execution of associated ***try*** body completes with no exceptions
-    - ***finally***: body of this is aleays executed after ***try***, ***else*** and ***except*** clauses, even if they raised another error or executed a ***break***, ***continue*** or ***return***  [useful for clean-up code that should be run no matter what else happened, like close a file]
+    - **else**: body of this is executed when execution of associated **try** body completes with no exceptions
+    - **finally**: body of this is aleays executed after **try**, **else** and **except** clauses, even if they raised another error or executed a **break**, **continue** or **return**  [useful for clean-up code that should be run no matter what else happened, like close a file]
 
 5) Using Exceptions
 
-    - ***raise***, control when to raise an exception by users, and program skips the next lines(same indentation): e.g. raise ValueError('error')
+    - **raise**, control when to raise an exception by users, and program skips the next lines(same indentation): e.g. raise ValueError('error')
     see --> get_ratio.py
 
     ```python
@@ -591,7 +591,7 @@ A path-complete glass box test suite would find test cases that go through every
 1) Introduction
     
     - want to be sure that assumptions on state of computation are as expected
-    - use an ***assert*** statement to raise an ***AssertionError*** exception if assumptions not met
+    - use an **assert** statement to raise an **AssertionError** exception if assumptions not met
     - an example of good defensive programming
 
     ```python
@@ -607,39 +607,39 @@ A path-complete glass box test suite would find test cases that go through every
 
     - Features:
         - assertions don't allow a programmer to control response to unexpected conditions
-        - ensure that execution ***halts*** whenever an expected condition isn't met
-        - typically used to ***check inputs*** to functions procedures, but can be used anywhere
-        - can be used to ***check outputs*** of a function to avoid propagaring bad values
+        - ensure that execution **halts** whenever an expected condition isn't met
+        - typically used to **check inputs** to functions procedures, but can be used anywhere
+        - can be used to **check outputs** of a function to avoid propagaring bad values
         - can make it easier to locate a source of a bug
 
 2) Where to use
     
     - goal is to spot bugs as soon as introduced and make clear where they happened
-    - use as a supplement to ***testing***
-    - ***raise exceptions*** if users supplies bad data input 
+    - use as a supplement to **testing**
+    - **raise exceptions** if users supplies bad data input 
     - use assertions to
-        - check ***types*** if arguments or values
-        - check that ***invariants*** on data structures are met
-        - check ***constraints*** on return values
-        - check for ***violations*** of constraints on procedure(e.g. no duplicates in a list)
+        - check **types** if arguments or values
+        - check that **invariants** on data structures are met
+        - check **constraints** on return values
+        - check for **violations** of constraints on procedure(e.g. no duplicates in a list)
 
 ## | Object Oriented Programming
 ### 5.1 Classes and Inheritance
 #### Object Oriented Programming(OOP)
 1) Object
     - features: each object has 
-        - a ***type***
-        - an internal ***data representation*** (primitive or composite)
-        - a set of procedures for ***ineraction*** with the object
+        - a **type**
+        - an internal **data representation** (primitive or composite)
+        - a set of procedures for **ineraction** with the object
     - each instance is a particular type of object
         - eg. 123 is an instance of an **int**
         - str0 = "hello"  --> str0 is an instance of a **string** 
 
-    - objects are a ***data abstraciton*** that capture:
-        - internal ***representation*** through data attributes
-        - ***interface*** for interacting with object through methods(procedures), defines behaviors but hides implementation
-    - can ***create new instances*** of objects
-    - can ***destroy objects***
+    - objects are a **data abstraciton** that capture:
+        - internal **representation** through data attributes
+        - **interface** for interacting with object through methods(procedures), defines behaviors but hides implementation
+    - can **create new instances** of objects
+    - can **destroy objects**
         - explicitly using **del** 
         - or just "forget" about them: Python system will reclaim destroyed or inaccessible objects --- called "grabage collection"
 
@@ -657,6 +657,7 @@ A path-complete glass box test suite would find test cases that go through every
         - implement and test behavior of each class separately
         - increased modularity reduces complexity
     - classes make it easy to **reuse** code
+    - classes make it easy to **reuse** code
         - many Python medules define new classes
         - each class has separate environment(no collision on function names)
         - inheritance allows subclasses to redefine or extend a selected subset of a superclass' behavior
@@ -669,6 +670,7 @@ A path-complete glass box test suite would find test cases that go through every
     class Coordinate(object):
         #<define attributes here>
     ```
+
     - similiar to **def**, indent code to indicate which statements are part of the class definition
     - the word **object** means that **Coordinate** is a Python object and inherits all its attributes(coming soon)
         - **Coordinate** is a subclass of **object**
@@ -676,15 +678,15 @@ A path-complete glass box test suite would find test cases that go through every
 
 2) Attributes
     - data and procedures that belong to the class
-    - ***data*** attributes:
+    - **data** attributes:
         - think of data as other objects that make up the class
         - eg. an coordinate is made up of two numbers
-    - procedural attributes(***methods***)
+    - procedural attributes(**methods**)
         - think of methods as functions that only work with this class
         - eg. you can define a distance between two coordinate objects but there is no meaning to a distance between two list objects
 
 3) Defining How to Create an Instance of a Class
-    - using a special method called ***__init__*** to initialize some data attributes
+    - using a special method called **__init__** to initialize some data attributes
 
     ```python
     class Coordinate(object):
@@ -753,10 +755,104 @@ A path-complete glass box test suite would find test cases that go through every
 
 5) Special Operators
     - +, -, <, >, len(), print, and many others
-    - refer to: 
+    - refer to: [https://docs.python.org/2/reference/datamodel.html#basic-customization](https://docs.python.org/2/reference/datamodel.html#basic-customization)
+    - like print, can override these to work with your class
+    - define them with double underscores before & after
+        - __add__(self, other) -> self + other
+        - __sub__(self, other) -> self - other
+        - __eq__(self, other) -> self == other
+        - __lt__(self, other) -> self < other
+        - __len__(self) -> len(self)
+        - __str__(self) -> print(self)
+        and others...
+    - eg:
+
+    ```python
+        def __sub__(self, other):
+            return Coordinate(self.x - other.x, self.y - other.y)
+
+    foo = c.sub(origin)
+    print(foo) # it shows <3,4> , since we difined __str__ method before
+    ```
 
 
 #### Class Examples
+1) Ecample: Fraction
+    -create a **new type** to represent an number as a fraction
+    - **internal representation** is two integer:
+        - numerator # top
+        - denominator # under
+    - **interface** a.k.a.(also known as) **methods** a.k.a. **how to interact** with **Fraction** objects
+        - print representation
+        - add, substract
+        - convert to a float
+
+2) Initial Fraction Class
+    ```python
+    class fraction(object):
+        def __init__(self, numer, denom):
+            self.numer = numer
+            self.denom = denom
+        def __str__(self):
+            return str(self.numer) + '/' + str(self.denom)
+    ```
+
+3) Accessing Data Attributes
+    ```python
+    class fraction(object):
+        def __init__(self, numer, denom):
+            self.numer = numer
+            self.denom = denom
+        def __str__(self):
+            return str(self.numer) + '/' + str(self.denom)
+        def getNumer(self):
+            return self.numer
+        def getDenom(self):
+            return self.denom
+
+    onHalf = fraction(1,2)
+    twoThirds = fraction(2,3)
+    print(oneHalf) # it shows 1/2
+    print(onHalf.getNumer()) # it shows 1
+    print(fraction.getDenom(twoTirds)) # it shows 3 
+    ```
+
+    - adding other methods:
+    ```python
+        def __add__(self, other):
+            newNumer = other.getDenom() * self.getNumer() + other.getNumer() * self.getDenom()
+            newDenom = self.getDenom() * other.getDenom()
+            return fraction(newNumer, newDenom)
+        def __sub__(self, other):
+            newNumer = other.getDenom() * self.getNumer() - other.getNumer() * self.getDenom()
+            newDenom = other.getDenom() * self.getDenom()
+            return fraction(newNumer, newDenom)
+        def convert(self):
+            return self.getNumer() / self.getDenom()
+
+    oneHalf = fraction(1,2)
+    twoThirds = fraction(2,3)
+    newFraction = oneHalf + twoThirds
+    print(newFraction)
+    ```
+
+4) Example: a set of Integer
+    - create a new type to represent a collection of integers
+        - initially the set is empty
+        - a particular integer appears only once in a set: called 
+         **representational invariant** enforced by the code
+    - internal data representation
+        - use a **list** to store the elements of a set
+    - **interface**
+        - insert(e)     -> insert integer e into set if not there
+        - member(e)     -> return True if integer e is in set, Flase else
+        - remove(e)     -> remove integer e from set, error if not presenth
+    - eg:
+    ``python
+    class intSet(object):
+        def __
+    ```
+
 
 
 ### 5.2 An Extended Example
