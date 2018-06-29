@@ -652,11 +652,11 @@ A path-complete glass box test suite would find test cases that go through every
         - doing operations on the instances
 
 3) Advantages of OOP
-    - ***bundke data into packages*** together with procedures that work on them through well-defined interfaces
-    - ***devide-and-conquer*** development
+    - **bundke data into packages** together with procedures that work on them through well-defined interfaces
+    - **devide-and-conquer** development
         - implement and test behavior of each class separately
         - increased modularity reduces complexity
-    - classes make it easy to ***reuse*** code
+    - classes make it easy to **reuse** code
         - many Python medules define new classes
         - each class has separate environment(no collision on function names)
         - inheritance allows subclasses to redefine or extend a selected subset of a superclass' behavior
@@ -665,10 +665,10 @@ A path-complete glass box test suite would find test cases that go through every
 #### Class Instance
 1) Define Own Types
     - use **class** keyword to define a new type:
-    '''python
+    ```python
     class Coordinate(object):
         #<define attributes here>
-    '''
+    ```
     - similiar to **def**, indent code to indicate which statements are part of the class definition
     - the word **object** means that **Coordinate** is a Python object and inherits all its attributes(coming soon)
         - **Coordinate** is a subclass of **object**
@@ -686,7 +686,7 @@ A path-complete glass box test suite would find test cases that go through every
 3) Defining How to Create an Instance of a Class
     - using a special method called ***__init__*** to initialize some data attributes
 
-    '''python
+    ```python
     class Coordinate(object):
         def __init__(self, x, y):
         """
@@ -696,7 +696,7 @@ A path-complete glass box test suite would find test cases that go through every
         """
             self.x = x
             self.y = y
-    '''
+    ```
 
 #### Methods
 1) Definition
@@ -706,7 +706,7 @@ A path-complete glass box test suite would find test cases that go through every
 
 2) Eg for Define a Method for Class
 
-    '''python
+    ```python
     class Coordinate(object):
         def __init__(self, x, y):
             self.x = x
@@ -721,8 +721,7 @@ A path-complete glass box test suite would find test cases that go through every
     origin = Coordinate(0,0)
     print(c.distance(origin)) # shows 5.0
     print(Coordinate(c, origin)) # also shows 5.0, equivalent to the previous one
-
-    '''
+    ```
     - think of **Coordinate** as pointing to a frame:
         - within the scope of that frame we created methods
         - **Coordiante.distance** gets the value of **Coordiante (a frame)**, then looks up the value associated with **distance (a procedure)**, the invokes it(which requires two arguments)
@@ -735,23 +734,26 @@ A path-complete glass box test suite would find test cases that go through every
     - you choose what it does! Say that when we print a **Coordinate** object, want to show: <3,4>
     - eg:
 
-    '''python
+    ```python
         def __str__(self):
             return "<"+ str(self.x) + "," + str(self.y) + ">"
 
     print(c) # it shows <3,4>
-    '''
+    ```
 
 4) Wrapping your Head Around Types and Class
-    '''python
+    ```python
         print(type(c)) #it shows <class __main__.Coordinate>
         print(Coordinate) # it also shows <class __main__.Coordinate>
         print(type(Coordinate)) # it shows <type 'type'> 
 
         #can use isinstance() to check if an object is an instance of a class
         print(isinstance(c, Coordinate)) # it returns True
-    '''
+    ```
 
+5) Special Operators
+    - +, -, <, >, len(), print, and many others
+    - refer to: 
 
 
 #### Class Examples
