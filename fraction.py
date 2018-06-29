@@ -27,4 +27,6 @@ class fraction(object):
 onHalf = fraction(1,2)
 twoThirds = fraction(2,3)
 newFraction = onHalf + twoThirds
-print(newFraction)
+newFraction2 = onHalf - twoThirds
+print(newFraction) # it shows 7/6
+print(newFraction2) # it shows -1/6
