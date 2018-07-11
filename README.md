@@ -115,7 +115,7 @@ Then if we want to produce a large image, we need more than one projectors
 - hide tedious coding details
  
  **function** has a name, parameters(0 or more), a docstring(optional), a body
- ![](http://img.blog.csdn.net/20180111165535757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHNvb3R3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+ ![Definition of Function](http://img.blog.csdn.net/20180111165535757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdHNvb3R3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
  #### ITERATIVE or RECURSIVE
  1) gcd.py
@@ -914,6 +914,252 @@ A path-complete glass box test suite would find test cases that go through every
 
 
 #### Why OOP
+1) The Power of OOP
+    - **bundle together objects** that share:
+        - common attributes and
+        - procedures that operate on those attributes
+    - use **abstraction** to make a distinctoin between how to implememt an object VS how to use the object
+    - build **layers** of object abstraction that inherit behaviors from other classes of objects
+    - create our **own classes of objects** on top of Python's basic classes
+
+2) Implementing the class VS Using the class
+    - write code from two different perspectives
+    - all class examples we saw so far were numerical
+
+    - Implememting a new object type with a class:
+        - define the class
+        - define data attributes (what is the object)
+        - define methods(how to use the object)
+    - Using the new object type in code:
+        - create instances of the object type
+        - do operations woth them
+
+3) Class definition of an object type VS Instance of a class
+    - class is the **type**
+        - a ***Coordinate*** type : `class Coordinate(object):`
+    - class id defined generically
+        - use ***self*** to refer ro any instance while defining the class
+    - class defines data and methods **common across all instances**
+
+    - instance is **one particular** object
+        - `mycoo = Coordinate(3,4)`
+    - data values vary between instances
+        - `c1 = Coordinate(1,2)`
+        - `c2 = Coordinate(3,4)`
+        - c1 and c2 have differnert data values because they are different objects
+    - instance has the **structure of the class**
+
+4)Why use OOP and Classes of Objects
+    - mimic real life
+    - group different objects as part of the same type
+
+5) Groups of Objects have Attributes
+    - **data attributes**:
+        - how can you represent your object with data?
+        - **what it is**
+        - <for a coordinate:x and y values>
+        - <for an animal:age, name>
+    - **procedural attributes**(behaviors/ operations/ methods):
+        - what kind of things can you do with the object?
+        - **what it does**
+        - <for a coordinate:find distance between two>
+        - <for an animal:make a sound>
+
+6) Defining a Class(Recap)
+    - `name` is a data attribute even though an instance is not initialized with it as a parameter
+    ```python
+    class Animal(object):
+        def __init__(self, age):
+            self.age = age
+            self.name = None
+
+    myanimal = Animal(3)
+    ```
+
+7) Getter and Setter Methods
+    ```python
+    class Animal(object):
+        def __init__(self, age):
+            self.age = age
+            self.name = None
+        def get_age(self):
+            return self.age
+        def get_name(self):
+            return self.name
+        def set_age(self, newage):
+            self.age = newage
+        def set_name(self, newname=""): 
+            self.name = newname
+        def __str__(self):
+            return "animal:" + str(self.name) + ":" + str(self.age)
+    ```
+    - **default arguments** for formal parameters are used if no actual argument is given:
+        - for the method: `def set_name(self, newname=""):`
+            - default argument used here: `myanimal.set_name()`
+            - argument passed is used here: `myanimal.set_name('fluffy')`
+
+8) Information Hiding
+    - dot notation used to access the attributes(data and methods) though it is better to use getters and setters to access data attributes:
+        - `myanimal.age` (access the data attribute)
+        - **Better** : `myanimal.get_age()` (access and use method [if just call myanimal.get_age, get method but don't invoke it])
+
+    - Thus, author of class definition may **change data attribute** variable names:
+    ```python
+    class Animal(object):
+        def __init(self, age):
+            self.years = age
+        def get_age(self):
+            return self.years
+    ```
+
+    - if you are accessing data attributes outside the class and class definition changes, may get errors
+    - outside of class, use **getter and setter** instead: USE ***myanimal.get_age()*** NOT ***myanimal.age***
+        - good style
+        - easy to maintain code
+        - prevent bugs
+
+9) Python not Great at Information Hiding
+     - allows you to **access data** from outside class definition `print(myanimal.age)`
+     - allows you to **write to data** from outside class definition `myanimal.age = 'infinite'`
+     - allows you to **create data attributes** for an instance from outside class definition `myanimal.size = 'tiny'`
+     - it's **not good style** to do any of these!!!
+
+
+
+#### Hierarchies
+1) Hierarchies
+    - parent class(superclass)
+    - child class(subclass)
+         - inherit all data and behaviors of parent class
+         - **add new information**
+         - **add new behaviors**
+         - **override behaviors**
+
+2) Inheritance
+    - add new functionality with `speak()`
+        - instance of type `Cat` can be called woth new methods
+        - instance of type `Animal` throws error if called with new methods
+    - `__init__` isn't missing, uses the Animal version
+    
+    ```python
+    class Cat(Animal):
+        def speak(self): # new method
+            print("meow")
+        def __str__(self): # override
+            return "cat:"+str(self.name)+":"+str(self.age)
+
+    cat1=Cat(2)
+    cat1.set_name('jelly')
+    print(cat1) # it shows cat:jelly:2
+    print(Animal.__str__(cat1)) # it shows animal:jelly:2 
+    ```
+
+3) Which method to use
+    - subclass can have **methods with same name** as superclass
+    - subclass can have **methods with same name** as other subclass(they are the same level)
+    - for an instance of a class, look for a mehod name in **current class definition**
+         - if not found, look for method name **up the hierarchy**(inparent, then grandparent, and so on)
+         - use first method up the hierarchy that you found with that method name
+
+4)
+    ```python
+    class Person(Animal):
+        def __init__(self, name, age):
+            Animal.__init__(self, age) # call Animal constructor
+            Animal.set_name(self, name) # call Animal's method
+            self.friends = []
+        def get_friends(self):
+            return self.friends
+        def add_friends(self, fname):
+            if fname not in self.friends:
+                self.friends.append(fname)
+        def speak(self):
+            print("hello")
+        def age_diff(self, other):
+            # alternate way: diff = self.age - other.age
+            diff = self.get_age() - other.get_age()
+            if self.age > other.age:
+                print(self.name, "is", diff, "years older than", other.name)
+            else:
+                print(self.name, "is", diff, "years younger than", other.name)
+        def __str__(self):
+            return "person:"+str(self.name)+":"+str(self.age)
+    
+    import random
+
+    class Student(Person):
+        def __init__(self, name, age, major=None):
+            Person.__init__(self, name, age)
+            self.major = major
+        def change_major(self, major):
+            self.major = major
+        def speak(self):
+            r = random.random() # gives back float between [0,1)
+            if r < 0.25:
+                print("i have homework")
+            elif 0.25 <= r < 0.5:
+                print("i need sleep")
+            elif 0.5 <= r <0.75:
+                print("i should eat")
+            else:
+                print("i am watching tv")
+        def __str__(self):
+            return "student:"+str(self.name)+":"+str(self.age)+":"+str(self.major)
+    ```
+
+
+#### Class Variables
+1) Instance Variables VS Class Variables
+    - Instance Variables:
+        - we have seen instance variables so far in code
+        - specific to an instance
+        - created for **each instance**, belongs to an instance
+        - used the generic variable name `self` within the class definition:  `self.variable_name`
+    - Class Variables:
+        - introduce class variables that belongs to the class
+        - defined inside class but outside any class methods, outside `__init__`
+        - **shared** among all objects/instances of that class
+
+2) Class Variables and the ***Rabbit*** Subclass
+    - **subclass inherit** all data attributes and methods of the parent class
+    - `tag`(class variable) uesd to give **unique id** to each new rabbit instance
+    - define **+ operator** between two `Rabbit` instances
+        - define what something like this does: r4 = r1 + r2
+        - where r1 and r2 are `Rabbit` instances
+        - r4 is a new `Rabbit` instance with age 0
+        - r4 has `self` as one parent and `other` as the other parent
+        - in __init__, should change to check that **parent1 and parent2 are of type Rabbit**
+    - define __eq__ to compare two Rabbits
+        - comparing ids of parents since rid are unique(due to class var)
+        - note that comparing objects(`self.parent1 == other.parent1`) will call the __eq__ method over and over until call it on None, thus will get **AttributeError**
+
+    ```python
+    class Rabbit(Animal):
+        tag = 1
+        def __init__(self, age, parent1=None, parent2=None):
+            Animal.__init__(self, age)
+            self.parent1 = parent1
+            self.parent2 = parent2
+            self.rid = Rabbit.tag
+            Rabbit.tag += 1
+        def get_rid(self):
+            # zfill(num) is a method on a string to pad the beginning with zores
+            return str(self.rid).zfill(3) # eg. return 001 instead of 1
+        def get_parent1(self):
+            return self.parent1
+        def get_parent2(self):
+            return self.parent2
+        def __add__(self, other):
+            # returning object of same type as this class, means the child of self and other
+            return Rabbit(0, self, other)
+        def __eq__(self, other):
+            # decide two rabbits are equal if they have the same two parents
+            parents_same = self.parent1.rid == other.parent1.rid and self.parent2.rid == other.parent2.rid
+            parent_opposite = self.parent2.rid == other.parent1.rid and self.parent1.rid ==other.parent2.rid
+            return parent_same or parent_opposite
+    ```
+
+
 
 
 ### 5.2 An Extended Example
