@@ -35,6 +35,10 @@ class Coordinate(object):
         return self.getX() == other.getX() and self.getY() == other.getY()
 
     def __repr__(self):
+    """ returns a string that looks like a valid Python expression 
+    that could be used to recreate an object with the same value. 
+    In other words, eval(repr(c)) == c
+    """
         return "Coordinate("+ str(self.getX()) +","+ str(self.getY()) +")"
 
 c = Coordinate(3,4)
