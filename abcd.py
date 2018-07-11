@@ -30,10 +30,11 @@ class C(object):
     def z(self):
         print("C.z")
 
-class D(C, B):
+class D(C, B): # this order matters the method search order
     def __init__(self):
-        C.__init__(self)
+        C.__init__(self) 
         B.__init__(self)
+        # the above two lines decide the data attribute(the later one will override the former one)
         self.d = 6
     def z(self):
         print("D.z")
@@ -47,5 +48,10 @@ class D(C, B):
 # so,
 # The data attributes were set by initialisation so the last wins.
 # The method attributes were inherited so the first one found stops the search.
+
 obj =D()
-print(obj.y())
+print(obj.a) # shows 2
+print(obj.b) # shows 3
+print(obj.c) # shows 5
+print(obj.x()) # shows A.x
+print(obj.y()) # shows C.y
