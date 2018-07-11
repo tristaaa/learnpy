@@ -33,6 +33,9 @@ class intSet(object):
         return "{" + ",".join([str(e) for e in self.vals]) + "}"
 
     def intersect(self, other):
+    """ returns a new intSet containing elements 
+    that appear in both sets
+    """
         s3 = intSet()
         for e1 in self.vals:
             if e1 in other.vals:
@@ -40,6 +43,8 @@ class intSet(object):
         return s3
 
     def __len__(self):
+    """ returns the number of elements in the intSet
+    """
         return len(self.vals)
 
 s = intSet()
