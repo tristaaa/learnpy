@@ -23,6 +23,30 @@ class Cat(Animal):
     def __str__(self): # override
         return "cat:"+str(self.name)+":"+str(self.age)
 
+class Rabbit(Animal):
+    tag = 1
+    def __init__(self, age, parent1=None, parent2=None):
+        Animal.__init__(self, age)
+        self.parent1 = parent1
+        self.parent2 = parent2
+        self.rid = Rabbit.tag
+        Rabbit.tag += 1
+    def get_rid(self):
+        # zfill(num) is a method on a string to pad the beginning with zores
+        return str(self.rid).zfill(3) # eg. return 001 instead of 1
+    def get_parent1(self):
+        return self.parent1
+    def get_parent2(self):
+        return self.parent2
+    def __add__(self, other):
+        # returning object of same type as this class, means the child of self and other
+        return Rabbit(0, self, other)
+    def __eq__(self, other):
+        # decide two rabbits are equal if they have the same two parents
+        parents_same = self.parent1.rid == other.parent1.rid and self.parent2.rid == other.parent2.rid
+        parent_opposite = self.parent2.rid == other.parent1.rid and self.parent1.rid ==other.parent2.rid
+        return parent_same or parent_opposite
+
 class Person(Animal):
     def __init__(self, name, age):
         Animal.__init__(self, age) # call Animal constructor
