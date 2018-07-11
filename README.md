@@ -4,27 +4,43 @@
 &ensp;&ensp;[- Introduction to Python](https://github.com/tristaaa/learnpy/blob/master/README.md#11-introduction-to-python)<br>
 &ensp;&ensp;[- Core Elements of Programs](https://github.com/tristaaa/learnpy/blob/master/README.md#12-core-elements-of-programs)<br>
 [| Simple Program](https://github.com/tristaaa/learnpy/blob/master/README.md#-simple-program)<br>
-&ensp;&ensp;[Simple Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#21-simple-algorithms)<br>
-&ensp;&ensp;&ensp;&ensp;[Bisection Search](https://github.com/tristaaa/learnpy/blob/master/README.md#bisection-search)<br>
-&ensp;&ensp;[Functions](https://github.com/tristaaa/learnpy/blob/master/README.md#22-functions)<br>
-&ensp;&ensp;&ensp;&ensp;[Iterative or Recursive](https://github.com/tristaaa/learnpy/blob/master/README.md#iterative-or-recursive)<br>
-&ensp;&ensp;&ensp;&ensp;[Divide and Conquer](https://github.com/tristaaa/learnpy/blob/master/README.md#divide-and-conquer)<br>
-&ensp;&ensp;[Complete Programming Experience:polysum](https://github.com/tristaaa/learnpy/blob/master/README.md#23-complete-programming-experiencepolysum)<br>
+&ensp;&ensp;[- Simple Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#21-simple-algorithms)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Bisection Search](https://github.com/tristaaa/learnpy/blob/master/README.md#bisection-search)<br>
+&ensp;&ensp;[- Functions](https://github.com/tristaaa/learnpy/blob/master/README.md#22-functions)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Iterative or Recursive](https://github.com/tristaaa/learnpy/blob/master/README.md#iterative-or-recursive)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Divide and Conquer](https://github.com/tristaaa/learnpy/blob/master/README.md#divide-and-conquer)<br>
+&ensp;&ensp;[- Complete Programming Experience:polysum](https://github.com/tristaaa/learnpy/blob/master/README.md#complete-programming-experiencepolysum)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Credit Card Problems](https://github.com/tristaaa/learnpy/blob/master/README.md#credit-card-problems)<br>
 [| Structured Types](https://github.com/tristaaa/learnpy/blob/master/README.md#-structured-types)<br>
-&ensp;&ensp;[Tuples and Lists](https://github.com/tristaaa/learnpy/blob/master/README.md#31-tuples-and-lists)<br>
-&ensp;&ensp;[Dictionaries and Sets](https://github.com/tristaaa/learnpy/blob/master/README.md#32-dictionaries-and-sets)<br>
+&ensp;&ensp;[- Tuples and Lists](https://github.com/tristaaa/learnpy/blob/master/README.md#31-tuples-and-lists)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Tuple](https://github.com/tristaaa/learnpy/blob/master/README.md#tuple)<br>
+&ensp;&ensp;&ensp;&ensp;[-- List](https://github.com/tristaaa/learnpy/blob/master/README.md#list)<br>
+&ensp;&ensp;[- Dictionaries and Sets](https://github.com/tristaaa/learnpy/blob/master/README.md#32-dictionaries-and-sets)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Dictionary](https://github.com/tristaaa/learnpy/blob/master/README.md#dictionary)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Set](https://github.com/tristaaa/learnpy/blob/master/README.md#set)<br>
 [| Midterm Exam](https://github.com/tristaaa/learnpy/blob/master/README.md#-midterm-exam)<br>
 [| Good Programming](https://github.com/tristaaa/learnpy/blob/master/README.md#-good-programming)<br>
-&ensp;&ensp;[Testing and Debugging](https://github.com/tristaaa/learnpy/blob/master/README.md#41-testing-and-debugging)<br>
-&ensp;&ensp;[Exceptions and Assertions](https://github.com/tristaaa/learnpy/blob/master/README.md#42-exceptions-and-assertions)<br>
+&ensp;&ensp;[- Testing and Debugging](https://github.com/tristaaa/learnpy/blob/master/README.md#41-testing-and-debugging)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Black-Box Testing and Glass-Box Testing](https://github.com/tristaaa/learnpy/blob/master/README.md#black-box-testing-and-glass-box-testing)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Bugs](https://github.com/tristaaa/learnpy/blob/master/README.md#bugs)<br>
+&ensp;&ensp;[- Exceptions and Assertions](https://github.com/tristaaa/learnpy/blob/master/README.md#42-exceptions-and-assertions)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Exceptions](https://github.com/tristaaa/learnpy/blob/master/README.md#exceptions)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Assertions](https://github.com/tristaaa/learnpy/blob/master/README.md#assertions)<br>
 [| Object Oriented Programming](https://github.com/tristaaa/learnpy/blob/master/README.md#-object-oriented-programming)<br>
-&ensp;&ensp;[Classes and Inheritance](https://github.com/tristaaa/learnpy/blob/master/README.md#51-classes-and-inheritance)<br>
-&ensp;&ensp;[An Extended Example](https://github.com/tristaaa/learnpy/blob/master/README.md#52-an-extended-example)<br>
+&ensp;&ensp;[- Classes and Inheritance](https://github.com/tristaaa/learnpy/blob/master/README.md#51-classes-and-inheritance)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Object Orientes Programming(OOP)](https://github.com/tristaaa/learnpy/blob/master/README.md#object-oriented-programmingoop)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Class Instance](https://github.com/tristaaa/learnpy/blob/master/README.md#calss-instance)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Methods](https://github.com/tristaaa/learnpy/blob/master/README.md#methods)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Class Examples](https://github.com/tristaaa/learnpy/blob/master/README.md#class-examples)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Why OOP](https://github.com/tristaaa/learnpy/blob/master/README.md#why-oop)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Hierarchies](https://github.com/tristaaa/learnpy/blob/master/README.md#hierarchies)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Class Variables](https://github.com/tristaaa/learnpy/blob/master/README.md#class-variables)<br>
+&ensp;&ensp;[- An Extended Example](https://github.com/tristaaa/learnpy/blob/master/README.md#52-an-extended-example)<br>
 [| Algorithmic Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#-algorithmic-complexity)<br>
-&ensp;&ensp;[Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#61-computational-complexity)<br>
-&ensp;&ensp;[Searching and Sorting Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#62-searching-and-sorting-algorithms)<br>
+&ensp;&ensp;[- Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#61-computational-complexity)<br>
+&ensp;&ensp;[- Searching and Sorting Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#62-searching-and-sorting-algorithms)<br>
 [| Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#-plotting)<br>
-&ensp;&ensp;[Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#71-poltting)<br>
+&ensp;&ensp;[- Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#71-poltting)<br>
 
 
 ## | Python Basic
@@ -507,15 +523,15 @@ A path-complete glass box test suite would find test cases that go through every
 1) Types
     
     Some types of exceptions: 
-    - trying to access beyond list limits -> IndexError
-    - using inexistent key of dictionary (dic['emp']) -> KeyError
-    - referencing a non-existing variable, local or glabal name not found -> NameError
-    - trying to convert an inappropriate type -> TypeError
-    - mixing data types without coercion ( 'a'/4 ) -> TypeError
-    - python can't parse program, trying to use keywords as a variable name -> SyntaxError
-    - attribute reference fail, using inexistent attribute name of an object -> AttributeError
-    - operand type okay, but value is illegal -> ValueError
-    - IO system reports malfunction (e.g. file not found) -> IOError
+    - trying to access beyond list limits -> **IndexError**
+    - using inexistent key of dictionary (dic['emp']) -> **KeyError**
+    - referencing a non-existing variable, local or glabal name not found -> **NameError**
+    - trying to convert an inappropriate type -> **TypeError**
+    - mixing data types without coercion ( 'a'/4 ) -> **TypeError**
+    - python can't parse program, trying to use keywords as a variable name -> **SyntaxError**
+    - attribute reference fail, using inexistent attribute name of an object -> **AttributeError**
+    - operand type okay, but value is illegal -> **ValueError**
+    - IO system reports malfunction (e.g. file not found) -> **IOError**
 
 2) What to do
 
@@ -860,7 +876,7 @@ A path-complete glass box test suite would find test cases that go through every
         - remove(e)     -> remove integer e from set, error if not presenth
     - eg:
 
-    ``python
+    ```python
     class intSet(object):
         def __init__(self):
             self.vals = []
