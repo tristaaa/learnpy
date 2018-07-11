@@ -1,8 +1,8 @@
 # learnpy 
 
 [| Python Basic](https://github.com/tristaaa/learnpy/blob/master/README.md#-python-basic)<br>
-&ensp;&ensp;[Introduction to Python](https://github.com/tristaaa/learnpy/blob/master/README.md#11-introduction-to-python)<br>
-&ensp;&ensp;[Core Elements of Programs](https://github.com/tristaaa/learnpy/blob/master/README.md#12-core-elements-of-programs)<br>
+&ensp;&ensp;[- Introduction to Python](https://github.com/tristaaa/learnpy/blob/master/README.md#11-introduction-to-python)<br>
+&ensp;&ensp;[- Core Elements of Programs](https://github.com/tristaaa/learnpy/blob/master/README.md#12-core-elements-of-programs)<br>
 [| Simple Program](https://github.com/tristaaa/learnpy/blob/master/README.md#-simple-program)<br>
 &ensp;&ensp;[Simple Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#21-simple-algorithms)<br>
 &ensp;&ensp;&ensp;&ensp;[Bisection Search](https://github.com/tristaaa/learnpy/blob/master/README.md#bisection-search)<br>
@@ -896,6 +896,8 @@ A path-complete glass box test suite would find test cases that go through every
     s.remove(2) 
     ```
 
+
+#### Why OOP
 
 
 ### 5.2 An Extended Example
