@@ -41,7 +41,9 @@ class Grades(object):
         if not self.isSorted:
             self.students.sort()
             self.isSorted = True
-        return self.students[:] # return copy of list of student
+#       return self.students[:] # return copy of list of student
+        for s in self.students:
+            yield s
 
 def gradeReport(course):
     """Assumes: course is of type Grades"""
