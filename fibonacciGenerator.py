@@ -14,6 +14,7 @@ def genFib():
 
 fib = genFib()
 print(fib) # shows <generator object genTest at 0x11bfd3620>
+print(fib.__iter__())  # shows <generator object genTest at 0x11bfd3620>
 
 print(fib.__next__()) # shows 1
 print(fib.__next__()) # shows 2
