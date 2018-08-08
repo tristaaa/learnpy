@@ -1638,13 +1638,42 @@ A path-complete glass box test suite would find test cases that go through every
         - Finding the nth Fibonacci number : **Standard fuction**
             - There are formulas to calculate the nth Fibonacci number. A function could implement this so no looping/iterating is necessary
             ```python
+            def fibonacci(n):
+                """Have to calculate all the former fibonacci number by the order""" 
+                if n < 0:
+                    raise ValueError("Negative arguments not implemented")
+                return _fib(n)
+
+
+            def _fib(n, fibs = [(0, 1), (1, 1)]):
+                """Returns the tuple (Fib(n), Fib(n+1))"""
+                try:
+                    f = fibs[n]
+                except IndexError:
+                    a, b = _fib(n // 2) # Fib(n-2), Fib(n-1)
+                    c = a * (b * 2 - a)
+                    d = a * a + b * b
+                    if n % 2 == 0:
+                        fibs.append((c, d))
+                    else:
+                        fibs.append((d, c + d))
+                        print('in fibs:',fibs)
+                    f = fibs[-1]
+                return f
+
+
+            print(fibonacci(2)) 
+            print(fibonacci(3))
+            print(fibonacci(4))
+            print(fibonacci(5))
+            print(fibonacci(6))
+            print(fibonacci(7))
+            ```
 
         - Printing out an unbounded sequence of Fibonacci numbers: **Generator**
-            - 
         - Printing out a bounded sequence of prime numbers, where the prime numbers are successively computed by division by smaller primes: **Either is fine**
             - both of them can show the result, and even the code of the two ways look same(See ***primesGenerator.py*** the function `genPrimesFn()` and the generator `genPrimesFn2()`)
         - Printing out an unbounded sequence of prime numbers, where the prime numbers are successively computed by division by smaller primes: **Generator**
-            - 
         - Finding the score of a word from the ProblemSet4:6.00 word game(make up words as much as u could from a bundle of letters): **Standard function**
             - Only one result returned, so short that savings from generator don't overweigh the overhead(See the `findScore()` function in ***ps4a.py***)
         - Iterating over a sequence of numbers in a random order, where no number is repeated: **Standard function**
