@@ -43,6 +43,10 @@
 &ensp;&ensp;[- Plotting](https://github.com/tristaaa/learnpy/blob/master/README.md#71-poltting)<br>
 
 
+---
+Most From Edx Course Named **Introduction to Computer Science and Programming Using Python
+MITx -  6.00.1x** Taught by Eric Grimson
+
 ## | Python Basic
 ### 1.1 Introduction to Python
 
@@ -1161,8 +1165,469 @@ A path-complete glass box test suite would find test cases that go through every
 
 
 
-
 ### 5.2 An Extended Example
+#### Building a Class
+1) Using Inheritance
+    - explore in some detail an example of buildingan application that organization that organize info about people
+    - start with a Person object
+         - Person: name, birthday
+            - get last name
+            - sort by last name
+            - get age
+    
+    ```python
+    import datetime
+
+    class Person(object):
+        def __init__(self, name):
+            """create a person called name"""
+            self.name = name
+            self.birthday = None
+            self.lastName = name.split(' ')[-1]
+        def getLastName(self):
+            """return self's last name"""
+            return self.lastName
+        def __str__(self):
+            """return self's name"""
+            return self.name
+        def setBirthday(self, month, day, year):
+            """sets self's birthday to birthDate"""
+            self.birthday = datetime.date(year, month, day)
+        def getAge(self):
+            """return self's current age in days"""
+            if self.birthday == None:
+                raise ValueError
+            return (datetime.date.today() - self.birthday).days
+        def __lt__(self, other):
+            """return True if self's name is lexicographically less than other's name,
+            and False otherwise"""
+            if self.lastName == other.lastName:
+                return self.name < other.name
+            return self.lastName < other.lastName
+
+    p1 = Person('Mark Zuckerburg')
+    p1.setBirthday(5,14,84)
+    p2 = Person('Drew Houston')
+    p2.setBirthday(3,4,83)
+    p3 = Person('Bill Gates')
+    p3.setBirthday(10,28,55)
+    p4 = Person('Andrew Gates')
+    p5 = Person('Steve Wozniak')
+
+    personList = [p1, p2, p3, p4, p5]
+
+    for e in personList:
+        print(e) 
+    # shows Mark Zuckerburg, Drew Houston, Bill Gates, Andrew Gates, Steve Wozniak in each line
+
+    personList.sort()
+    print()
+
+    for e in personList:
+        print(e)
+    # shows Andrew Gates, Bill Gates, Drew Houston, Steve Wozniak, Mark Zuckerburg in each line
+    ```
+
+#### Visualizing the Hierarchy
+1) Using Inheritance
+    - explore in some detail an example of buildingan application that organization that organize info about people
+    - start with a Person object
+         - Person: name, birthday
+            - get last name
+            - sort by last name
+            - get age
+    - MITPerson: Person + ID Number
+        - assign ID number in sequence
+        - get ID number
+        - sort by ID number
+    ```python
+    class MITPerson(Person):
+        nextIdNum = 0 # next ID number to assign
+
+        def __init__(self, name):
+            Person.__init__(self, name) # initialize Person attributes
+            self.idNum = MITPerson.nextIdNum # MITPerson attribute:unique ID
+            MITPerson.nextIdNum += 1
+        def getIdNum(self):
+            return self.idNum
+
+        def __lt__(self, other):
+            # sorting MIT people uses their ID number, not name!
+            return self.idNum < other.idNum
+        def speak(self, utterance):
+            return (self.getLastName() + " says: " + utterance)
+
+    m3 = MITPerson('Mark Zuckerburg')
+    Person.setBirthday(m3,5,14,84)
+    m2 = MITPerson('Drew Houston')
+    Person.setBirthday(m2,3,4,83)
+    m1 = MITPerson('Bill Gates')
+    Person.setBirthday(m1,10,28,55)
+
+    MITPersonList = [m1,m2,m3]
+
+    for e in MITPerson:
+        print(e)
+    # shows Bill Gates, Drew Houston, Mark Zuckerburg in each line
+
+    MITPerson.sort()
+    print()
+
+    for e in MITPerson:
+        print(e)
+    # shows Mark Zuckerburg, Drew Houston, Bill Gates in each line(sorting by ID) 
+    ```
+
+2) How to Compare?
+
+    ```python
+    mp1 = MITPerson('Eric')
+    mp2 = MITPerson('John')
+    mp3 = MITPerson('John')
+    mp4 = Person('John')
+
+    mp1 < mp2 # shows True
+    mp4 < mp1 # shows Flase (WHY???!!!)
+    mp1 < mp4 # shows AttributeError: 'Person' object has no attribute 'idNum'
+    ```
+
+    - MITPerson has its own ***__lt__*** method
+    - method "shadows" the **Person** method, meaning that if we compare an MITPerson object. since its environment inherits from the **MITPerson** class environment, Python will see this version of ***__lt__*** not the ***Person*** version
+    - thus, `mp1 < mp2` will be converted into `mp1.__lt__(mp2)` which applies the method associated with the type of `mp1`, or the MITPerson version
+    - Why does mp4 < mp1 work, but mp1 < mp4 doesn't?
+         - mp4 < mp1 is equivalent to mp4.__lt(mp1), which means we use the __lt__ method associated with the type of mp4, namely a Person(the one that compares based on name)
+         - mp1 < mp4 is equivalent to mp1.__lt__(mp4), which means we use the __lt__ method associated with the type of mp1, namely an MITPerson and since mp4 is a Person, it doesn't have an attribute 'idNum'
+
+#### Adding another class
+1) Using Hieritance
+    - explore in some detail an example of building an application that organizes info about perple
+        - Person: name, birthday
+            - get last name
+            - sort by name
+            - get age
+        - MITPerson: Person + ID Number
+            - assign ID Number in sequence
+            - get ID number
+            - sort by ID number
+        - Student: several types, all MITPerson
+            - undergraduate student: has class year
+            - graduate student (can't tell how long it's going to finish up their PhD)
+
+    ```python
+    class UG(MITPerson):
+        def __init__(self, name, classYear):
+            MITPerson.__init__(self, name)
+            self.year = classYear
+        def getClass(self):
+            return self.year
+        def speak(self, utterance):
+            return MITPerson.speak(self, "Dude, " + utterance)
+
+    class Grad(MITPerson):
+        pass
+
+    def isStudent(obj):
+        return isinstance(obj, UG) or isinstance(obj, Grad)
+
+
+    s1 = UG('Matt Damon', 2017)
+    s2 = UG('Ben Affleck', 2017)
+    s3 = UG('Lin Manuel Miranda', 2018)
+    s4 = Grad('Leonardo di Caprio')
+
+    studentList = [s1,s2,s3,s4]
+
+    print(s1) # shows Matt Damon
+    print(s1.getClass()) # shows 2017
+    print(s1.speak('where is the quiz?')) # shows Damon says: Dude, where is the quiz?
+    ```
+
+2) Cleaning up Hierarchy
+    - there is another type of student, `TransferStudent`, somebody who comes to MIT after a year of being somewhere else
+    - But there is a problem, we should to rethink isStudent method (return isinstance(obj,UG) or isinstance(obj,Grad) or isinstance(obj,TransferStudent) )
+    - A cleaner way to change it: actually there is an implicit class here --- Student
+    ```python
+    class Student(MITPerson):
+        pass
+
+    class UG(Student):
+        def __init__(self, name, classYear):
+            MITPerson.__init__(self, name)
+            self.year = classYear
+        def getClass(self):
+            return self.year
+        def speak(self, utterance):
+            return MITPerson.speak(self, "Dude, " + utterance)
+
+    class Grad(Student):
+        pass
+
+    class TransferStudent(Student):
+        pass
+
+    def isStudent(obj):
+        return isinstance(obj, Student)
+    ```
+
+#### Using Inherited Method
+1) Using Inherited Methoduse
+     - add a Professor class of object
+        - also a kind of MITPerson
+        - but has different behaviors
+    - use as an example to see how one can leverage methods from other classes in the hierarchy but use that modularity to isolate changes to methods when we want to
+
+    ```python
+    class Professor(MITPerson):
+        def __init__(self, name, department):
+            MITPerson.__init__(self, name)
+            self.department = department
+        def speak(self, utterance):
+            new = 'In course ' + self.department + ' we say '
+            return MITPerson.speak(self, new + utterance)
+        def lecture(self, topic):
+            return self.speak('it is obvious that ' + topic)
+
+    faculty = Professor('Doctor Arrogant', 'six')
+
+    print(faculty.speak('hi there')) # shows Arrogant says: In course six we say hi there
+    print(faculty.lecture('hi there')) # shows Arrogant says: In course six we say it is obvious that hi there
+    ```
+
+2) Modularity Helps
+    - by isolating methods in classes, makes it easier to change behaviors
+        - can change base behavior of MITPerson class, which will be inherited by all other subclasses of MITPerson
+        - or can change behavior of a lower class in hierarchy
+    - for example, change MITPerson's speak method to:
+    ```python
+    def speak(self, utterance):
+        return  (self.name + "says:" + utterance)
+    ```
+    - then, all the MITPerson and its subclasses's speak methods, would use the person's full name rather than just its last name
+
+
+#### Gradebook Example
+1) Example Class: Gradebook
+    - create class that includes instances of other classes within it
+    - concept:
+        - build a data structure that can hold grades for students
+        - gather together sata and procedures for dealing with them in a single structure, so that users can manipulate without having to know internal details
+    ```python 
+    class Grades(object):
+        """A mapping from students to a list of grades"""
+        def __init__(self):
+            """Create empty grade book"""
+            self.students = [] # list of Student objects
+            self.grades = {} # maps isNum -> list of grades
+            self.isSorted = True
+
+        def addStudent(self, student):
+            """Assumes: student is of type Student
+                Add student to the grade book"""
+            if student in self.students:
+                raise ValueError('Duplicate student')
+            self.students.append(student)
+            self.grades[student.getIdNum()] = []
+            self.isSorted = False
+
+        def addGrade(self, student, grade):
+            """Assumes: grade is a float
+            Add grade to the list of grades fprstudent"""
+            try:
+                self.grades[student.getIdNum()].append(grade)
+            except KeyError:
+                raise ValueError('Student not in grade book') 
+
+        def getGrades(self, student):
+            """Return a list of grades for student"""
+            try:
+                #Important!!!  return a copy of grade, using [:]
+                return self.grades[student.getIdNum()][:]
+            except KeyError:
+                raise ValueError('Student not in grade book')
+
+        def allStudents(self):
+            """Return a list of the students in the grade book"""
+            if not self.isSorted:
+                self.students.sort()
+                self.isSorted = True
+            return self.students[:] # return copy of list of student
+
+    def gradeReport(course):
+        """Assumes: course is of type Grades"""
+        report = []
+        for s in course.allStudents():
+            tot = 0.0
+            numGrades = 0
+            for g in course.getGrades(s):
+                tot += g
+                numGrades += 1
+            try:
+                average = tot/numGrades
+                report.append(str(s) + '\'s mean grade is ' + str(average))
+            except ZeroDivisionError:
+                report.append(str(s) + 'has no grades')
+        return '\n'.join(report)
+
+
+    ug1 = UG('Matt Damon', 2018)
+    ug2 = UG('Ben Affleck', 2019)
+    ug3 = UG('Drew Houston', 2017)
+    ug4 = UG('Mark Zuckerberg', 2017)
+    g1 = Grad('Bill Gates')
+    g2 = Grad('Steve Wozniak')
+
+    six00 = Grades()
+    six00.addStudent(g1)
+    six00.addStudent(ug2)
+    six00.addStudent(ug1)
+    six00.addStudent(g2)
+    six00.addStudent(ug4)
+    six00.addStudent(ug3)
+
+
+    six00.addGrade(g1, 100)
+    six00.addGrade(g2, 25)
+    six00.addGrade(ug1, 95)
+    six00.addGrade(ug2, 85)
+    six00.addGrade(ug3, 75)
+
+    print(gradeReport(six00)) # first report based on the initial grades
+
+    six00.addGrade(g1, 90)
+    six00.addGrade(g2, 45)
+    six00.addGrade(ug1, 80)
+    six00.addGrade(ug2, 75)
+
+    print()
+    print(gradeReport(six00)) # modified grade report based on all the grades
+    ```
+
+2) Using Example
+    - could list all student using: `for s in sixx00.allStudents():`
+    - prints out the list of student names sorted by idNum
+    - why not just do: `for s in six00.students:`
+    - violates the data hiding aspect of an object, and exposes internal representation
+        - if I were to change how I want to represent a grade book, I should only need to change the methods within that object, not external procedures that use it
+
+3) Comments on Example
+    - nicely separeates collection of data from use of data
+    - access is through methods associated with the gradebook object
+    - but current version is inefficient - to get a list of all students, I create a copy of the internal list
+        - let's me manipulate without change the internal structure
+        - but expensive in a MOOC(Massive Open Online Course) with 100,000 students, it's bad idea to generate a list of 100,000 long
+
+
+#### Generators
+1) Generators
+    - any procedure or method with `yield` statement called a **generator**
+    ```python
+    def genTest():
+        yield 1
+        yield 2
+
+    foo = genTest()
+    print(foo.__next__()) # shows 1
+    print(foo.__next__()) # shows 2
+    print(foo.__next__()) # raise a StopIteration Error
+    ```
+    - `genTest()` --> <generator object genTest at 0x201b878> but not the general fuction
+    - generators have a `next()` method which starts/resumes execution of the procedure. Inside of generator:
+         - `yield` suspends execution and returns a value
+          - reutrn from a generator raises a StopIteration exception
+
+2) Fancier Example
+    ```python
+    def genFib():
+        fibn_1 = 1 # fib(n-1)
+        fibn_2 = 0 # fib(n-2)
+        while True:
+            # fib(n) = fib(n-1) + fib(n-2)
+            next = fibn_1 + fibn_2
+            yield next
+            fibn_2 = fibn_1
+            fibn_1 = next
+
+    fib = genFib()
+    print(fib) # shows <generator object genTest at 0x11bfd3620>
+
+    print(fib.__next__()) # shows 1
+    print(fib.__next__()) # shows 2
+    print(fib.__next__()) # shows 3
+    print(fib.__next__()) # shows 5
+    print(fib.__next__()) # shows 8
+    ```
+
+     - evaluating `fib = genFib()` cretes a generator object
+     - calling `fib.__next__()` will return the first Fabonacci number, and the subsequence call will generate each number in sequence
+     - evaluating `for n in genFib():` with next line ` print(n)` will procedure all of the Fibonacci numbers(an infinite sequence)
+
+3) Why Generator
+     - generator separates the concept of computing a very long sequence of objects, from the actual process of computing them explicitly
+     - allows one to generate each new objects as needed as part of another computation(rather than computing a very long sequence, only to throw most of it away while you do something on an element, then repeating the process)
+     - have already seen this idea in `range(n)`
+
+4) Fix the Former Grades Class
+    ```python
+    def allStudent(self):
+        """Before"""
+        if not self.isSorted:
+            self.students.sort()
+            self.isSorted = True
+        return self.students[:] # return copy of list of students
+
+
+    def allStudents(self):
+        """After"""
+        if not self.isSorted:
+            self.students.sort()
+            self.isSorted = True
+        for s in self.students:
+            yield s
+    ```
+
+5) genPrimes(Exercise)
+    - Write a generator, genPrimes, that returns the sequence of prime numbers on successive calls to its next() method: 2, 3, 5, 7, 11, ...
+    - Tips: Have the generator keep a list of the primes it's generated. A candidate number x is prime if `(x % p) != 0` for all earlier primes p.
+    
+    ```python
+    def genPrimes(x = 1):
+        primesList = [2]
+        yield 2
+        while True:
+#       x += 1
+        x += 2 # more efficient
+        for p in primesList:
+            if x % p == 0:
+                break
+        else: 
+        # executed only when the primeList is exhausted, but when the loop break,
+        # it won't executed
+            primesList.append(x)
+            yield x
+
+    def genPrimes2(x = 1):
+        """Another good code sample"""
+        primesList = [2]
+        yield 2
+        while True:
+            x += 2
+            if all(x%p != 0 for p in primesList):
+            """all(iterable) method only returns True if 
+            each element of the para iterable is True(False when 
+            the element is Flase, or 0, or empty)
+            Notice: all([]) or all(()) returns True"""
+                yield x
+                primesList.append(x)
+
+        ```
+
+
+6)Some Conceptions Needed Attention
+    - Every procedure that has a `yield` statement is a generator.
+    - Everything that can be done with generator can be done with a function. But, sometimes a generator is a better choice because we can ask the generator for the next item, one at a time, and don't waste the time computing values that we don't ultimately want(or won't want for a long time)
+    - 
+
+
 
 
 ## | Algorithmic Complexity
