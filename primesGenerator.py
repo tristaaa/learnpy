@@ -32,7 +32,7 @@ def genPrimes2(x = 1):
             primesList.append(x)
 
 
-def genPrimesFn():
+def genPrimesFn1():
     '''Function to return 1000000 prime numbers'''
     primes = []   # primes generated so far
     last = 1      # last number tried
@@ -45,7 +45,7 @@ def genPrimesFn():
             primes.append(last)
     return primes
 
-def genPrimesFn():
+def genPrimesFn2():
     '''Function to print every 10th prime 
     number, until you've printed 20 of them.'''
     primes = []   # primes generated so far
@@ -69,7 +69,7 @@ def genPrimesFn():
 
 
 
-def genPrimesFn():
+def genPrimesFn3():
     '''Function to keep printing the prime number until the user stops the program.
     This way uses user input; 
     you can also just run an infinite loop (while True)
