@@ -36,6 +36,12 @@
 &ensp;&ensp;&ensp;&ensp;[-- Hierarchies](https://github.com/tristaaa/learnpy/blob/master/README.md#hierarchies)<br>
 &ensp;&ensp;&ensp;&ensp;[-- Class Variables](https://github.com/tristaaa/learnpy/blob/master/README.md#class-variables)<br>
 &ensp;&ensp;[- An Extended Example](https://github.com/tristaaa/learnpy/blob/master/README.md#52-an-extended-example)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Building a Class](https://github.com/tristaaa/learnpy/blob/master/README.md#building-a-class)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Visualizing the Hierarchy](https://github.com/tristaaa/learnpy/blob/master/README.md#visualizing-the-hierarchy)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Adding Another Class](https://github.com/tristaaa/learnpy/blob/master/README.md#adding-another-class)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Using Inherited Method](https://github.com/tristaaa/learnpy/blob/master/README.md#using-inherited-method)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Gradebook Example](https://github.com/tristaaa/learnpy/blob/master/README.md#gradebook-example)<br>
+&ensp;&ensp;&ensp;&ensp;[-- Generators](https://github.com/tristaaa/learnpy/blob/master/README.md#generators)<br>
 [| Algorithmic Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#-algorithmic-complexity)<br>
 &ensp;&ensp;[- Computational Complexity](https://github.com/tristaaa/learnpy/blob/master/README.md#61-computational-complexity)<br>
 &ensp;&ensp;[- Searching and Sorting Algorithms](https://github.com/tristaaa/learnpy/blob/master/README.md#62-searching-and-sorting-algorithms)<br>
@@ -1594,16 +1600,16 @@ A path-complete glass box test suite would find test cases that go through every
         primesList = [2]
         yield 2
         while True:
-#       x += 1
-        x += 2 # more efficient
-        for p in primesList:
-            if x % p == 0:
-                break
-        else: 
-        # executed only when the primeList is exhausted, but when the loop break,
-        # it won't executed
-            primesList.append(x)
-            yield x
+#           x += 1
+            x += 2 # more efficient
+            for p in primesList:
+                if x % p == 0:
+                    break
+            else: 
+            # executed only when the primeList is exhausted, but when the loop break,
+            # it won't executed
+                primesList.append(x)
+                yield x
 
     def genPrimes2(x = 1):
         """Another good code sample"""
@@ -1625,7 +1631,25 @@ A path-complete glass box test suite would find test cases that go through every
 6)Some Conceptions Needed Attention
     - Every procedure that has a `yield` statement is a generator.
     - Everything that can be done with generator can be done with a function. But, sometimes a generator is a better choice because we can ask the generator for the next item, one at a time, and don't waste the time computing values that we don't ultimately want(or won't want for a long time)
-    - 
+    - A procedure is still a generator even though the `yield` statement in it will never be executed.
+    - If we were to use a generator to iterate over a million numbers, how many numbers do we need to store in memory at once? **2 !** (one is the current value, another is the max value-->1000000) ***Python actually provides this! The range function is a generator.***
+    
+
+    - Generator or Standard fuction works best***(least memory use & least cpu use)*** in the following conditions: 
+        - Finding the nth Fibonacci number : **Standard fuction**
+            - There are formulas to calculate the nth Fibonacci number. A function could implement this so no looping/iterating is necessary
+            ```python
+
+        - Printing out an unbounded sequence of Fibonacci numbers: **Generator**
+            - 
+        - Printing out a bounded sequence of prime numbers, where the prime numbers are successively computed by division by smaller primes: **Either is fine**
+            - both of them can show the result, and even the code of the two ways look same(See ***primesGenerator.py*** the function `genPrimesFn()` and the generator `genPrimesFn2()`)
+        - Printing out an unbounded sequence of prime numbers, where the prime numbers are successively computed by division by smaller primes: **Generator**
+            - 
+        - Finding the score of a word from the ProblemSet4:6.00 word game(make up words as much as u could from a bundle of letters): **Standard function**
+            - Only one result returned, so short that savings from generator don't overweigh the overhead(See the `findScore()` function in ***ps4a.py***)
+        - Iterating over a sequence of numbers in a random order, where no number is repeated: **Standard function**
+            -  Its the random order which requires you to maintain the whole list in memory so you don't save anything by going to a generator.
 
 
 
