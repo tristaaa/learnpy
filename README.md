@@ -1628,12 +1628,11 @@ A path-complete glass box test suite would find test cases that go through every
         ```
 
 
-6)Some Conceptions Needed Attention
+6) Some Conceptions Needed Attention
     - Every procedure that has a `yield` statement is a generator.
     - Everything that can be done with generator can be done with a function. But, sometimes a generator is a better choice because we can ask the generator for the next item, one at a time, and don't waste the time computing values that we don't ultimately want(or won't want for a long time)
     - A procedure is still a generator even though the `yield` statement in it will never be executed.
-    - If we were to use a generator to iterate over a million numbers, how many numbers do we need to store in memory at once? **2 !** (one is the current value, another is the max value-->1000000) ***Python actually provides this! The range function is a generator.***
-    
+    - If we were to use a generator to iterate over a million numbers, how many numbers do we need to store in memory at once? **2 !** (one is the current value, another is the max value-->1000000) ***# Python actually provides this! The range function is a generator.***
 
     - Generator or Standard fuction works best***(least memory use & least cpu use)*** in the following conditions: 
         - Finding the nth Fibonacci number : **Standard fuction**
