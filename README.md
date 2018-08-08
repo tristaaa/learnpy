@@ -1600,7 +1600,7 @@ A path-complete glass box test suite would find test cases that go through every
         primesList = [2]
         yield 2
         while True:
-#           x += 1
+            #x += 1
             x += 2 # more efficient
             for p in primesList:
                 if x % p == 0:
